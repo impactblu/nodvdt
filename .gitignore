@@ -1,0 +1,7 @@
+.env
+.env.*
+data/
+inbox/
+backups/
+*.sqlite3*
+*.zip
