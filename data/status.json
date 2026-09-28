@@ -1,1 +1,97 @@
-{}
+{
+  "last_run_started": "2026-09-28T06:13:32+00:00",
+  "last_run_finished": "2026-09-28T06:14:32+00:00",
+  "interval_hours": 24.0,
+  "summary": {
+    "sources_checked": 9,
+    "files_checked": 16,
+    "new_documents": 1,
+    "new_revisions": 12,
+    "values_updated": 0,
+    "values_need_check": 1,
+    "errors": 4
+  },
+  "sources": [
+    {
+      "supplier": "power-electronics",
+      "product": "power-electronics-pcsm-multi-pcsm",
+      "name": "Power Electronics · PCSM datasheets",
+      "url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
+      "files": 12,
+      "ok": true,
+      "error": null
+    },
+    {
+      "supplier": "sma",
+      "product": "sma-sunny-central-storage-up-xt-us",
+      "name": "SMA · SCS UP-XT-US",
+      "url": "https://www.sma-america.com/products/battery-inverters/sunny-central-storage-3450-up-xt-us-3600-up-xt-us-3800-up-xt-us-3950-up-xt-us",
+      "files": 0,
+      "ok": false,
+      "error": "No matching PDF links on the page. The site may load its downloads with JavaScript; add a direct PDF link as a source instead."
+    },
+    {
+      "supplier": "sungrow",
+      "product": "sungrow-sc5000ud-mv-us-p3",
+      "name": "Sungrow · SC5000UD-MV-US-P3 product page",
+      "url": "https://www.sungrowpower.com/en/products/utility-energy-storage-system/b-sc5000ud-mv-us-p3",
+      "files": 1,
+      "ok": true,
+      "error": null
+    },
+    {
+      "supplier": "sungrow",
+      "product": "sungrow-sc5000ud-mv-us-p3",
+      "name": "Sungrow · SC5000UD-MV-US-P3 datasheet",
+      "url": "https://info-support.sungrowpower.com/datasheet-materials/141a8fd9-bd55-45eb-bed1-02ca586002d4.pdf",
+      "files": 1,
+      "ok": true,
+      "error": null
+    },
+    {
+      "supplier": "dynapower",
+      "product": "dynapower-cps-1500",
+      "name": "Dynapower · CPS-1500 download page",
+      "url": "https://dynapower.com/resource/data-sheet-cps-1500-energy-storage-inverter/",
+      "files": 1,
+      "ok": true,
+      "error": null
+    },
+    {
+      "supplier": "dynapower",
+      "product": "dynapower-cps-1500",
+      "name": "Dynapower · CPS-1500 August 2025 datasheet",
+      "url": "https://dynapower.com/wp-content/uploads/2022/10/CPS-1500-Datasheet_Aug25_RGB.pdf",
+      "files": 1,
+      "ok": true,
+      "error": null
+    },
+    {
+      "supplier": "sinexcel",
+      "product": "sinexcel-stellaon-1575k",
+      "name": "Sinexcel · StellaON 1575K",
+      "url": "https://en.sinexcel.com/energy-storage/details.html?id=39",
+      "files": 0,
+      "ok": false,
+      "error": "Unexpected error: URL can't contain control characters. '/uploads/soft/20260303/PWX1-1575KTL-H User Manual 20251202.pdf' (found at least ' ')"
+    },
+    {
+      "supplier": "tmeic",
+      "product": "tmeic-energy-storage-pcs",
+      "name": "TMEIC · Energy storage product discovery",
+      "url": "https://www.tmeic.com/product-category/pv-inverters/",
+      "files": 0,
+      "ok": false,
+      "error": "No matching PDF links on the page. The site may load its downloads with JavaScript; add a direct PDF link as a source instead."
+    },
+    {
+      "supplier": "ingeteam",
+      "product": "ingeteam-ingecon-sun-storage-fsk-c-series-hv",
+      "name": "Ingeteam · Storage FSK C Series HV",
+      "url": "https://www.ingeteam.com/en/ingecon-sun-storage-fsk-c-series-hv",
+      "files": 0,
+      "ok": false,
+      "error": "https://www.ingeteam.com/sites/default/files/2026-03/INGECON%20SUN%20STORAGE%20FSK%20C%20SERIES%20HV.pdf: HTTP 403"
+    }
+  ]
+}

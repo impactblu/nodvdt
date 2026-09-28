@@ -261,13 +261,23 @@
     "conditions": "At 40 °C, 1.00 × nominal AC voltage and CosPhi=1 per footnote [1]. Other table ratings: 5240 at 30 °C, 5020 at 35 °C, 4360 at 50 °C.",
     "evidence": "AC Output Power (kVA/kW) @40 °C [1] 4800",
     "document": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en",
-    "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+    "revision": "e36e29e2eb0d0d97fd566e120f225cbe9a411f3b0a434a2f10c048da32b24eef",
     "page": 2,
-    "status": "reviewed",
-    "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+    "status": "confirmed",
     "reviewed_at": "2026-09-07T22:23:27+00:00",
-    "checked_at": "2026-09-07T22:23:27+00:00",
-    "history": []
+    "checked_at": "2026-09-28T06:13:53+00:00",
+    "history": [
+      {
+        "value": "4800",
+        "numeric": 4800,
+        "page": 2,
+        "evidence": "AC Output Power (kVA/kW) @40 °C [1] 4800",
+        "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+        "status": "reviewed",
+        "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+        "checked_at": "2026-09-07T22:23:27+00:00"
+      }
+    ]
   },
   {
     "id": "power-electronics-fp5020mu-pcsm-690-v-ul:rated_kw",
@@ -278,13 +288,23 @@
     "conditions": "At 40 °C and unity power factor per footnote [1]; reactive dispatch consumes apparent-power headroom.",
     "evidence": "AC Output Power (kVA/kW) @40 °C [1] 4800",
     "document": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en",
-    "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+    "revision": "e36e29e2eb0d0d97fd566e120f225cbe9a411f3b0a434a2f10c048da32b24eef",
     "page": 2,
-    "status": "reviewed",
-    "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+    "status": "confirmed",
     "reviewed_at": "2026-09-07T22:23:27+00:00",
-    "checked_at": "2026-09-07T22:23:27+00:00",
-    "history": []
+    "checked_at": "2026-09-28T06:13:53+00:00",
+    "history": [
+      {
+        "value": "4800",
+        "numeric": 4800,
+        "page": 2,
+        "evidence": "AC Output Power (kVA/kW) @40 °C [1] 4800",
+        "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+        "status": "reviewed",
+        "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+        "checked_at": "2026-09-07T22:23:27+00:00"
+      }
+    ]
   },
   {
     "id": "power-electronics-fp5020mu-pcsm-690-v-ul:dc_max_v",
@@ -295,13 +315,23 @@
     "conditions": "Maximum DC voltage.",
     "evidence": "Maximum DC Voltage 1500 V",
     "document": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en",
-    "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+    "revision": "e36e29e2eb0d0d97fd566e120f225cbe9a411f3b0a434a2f10c048da32b24eef",
     "page": 2,
-    "status": "reviewed",
-    "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+    "status": "confirmed",
     "reviewed_at": "2026-09-07T22:23:27+00:00",
-    "checked_at": "2026-09-07T22:23:27+00:00",
-    "history": []
+    "checked_at": "2026-09-28T06:13:53+00:00",
+    "history": [
+      {
+        "value": "1500",
+        "numeric": 1500,
+        "page": 2,
+        "evidence": "Maximum DC Voltage 1500 V",
+        "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+        "status": "reviewed",
+        "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+        "checked_at": "2026-09-07T22:23:27+00:00"
+      }
+    ]
   },
   {
     "id": "power-electronics-fp5020mu-pcsm-690-v-ul:full_power_dc_range",
@@ -313,11 +343,20 @@
     "document": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en",
     "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
     "page": 2,
-    "status": "reviewed",
-    "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+    "status": "needs-check",
     "reviewed_at": "2026-09-07T22:23:27+00:00",
-    "checked_at": "2026-09-07T22:23:27+00:00",
-    "history": []
+    "checked_at": "2026-09-28T06:13:53+00:00",
+    "history": [
+      {
+        "value": "976–1500",
+        "page": 2,
+        "evidence": "DC Voltage Range Full Power [3] 976 V – 1500 V",
+        "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+        "status": "reviewed",
+        "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+        "checked_at": "2026-09-07T22:23:27+00:00"
+      }
+    ]
   },
   {
     "id": "power-electronics-fp5020mu-pcsm-690-v-ul:mv_voltage_kv",
@@ -327,13 +366,22 @@
     "conditions": "Operating grid / MV voltage; do not confuse with the 690 V variant designation.",
     "evidence": "Operating Grid Voltage (kV) 34.5 kV ±10%",
     "document": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en",
-    "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+    "revision": "e36e29e2eb0d0d97fd566e120f225cbe9a411f3b0a434a2f10c048da32b24eef",
     "page": 2,
-    "status": "reviewed",
-    "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+    "status": "confirmed",
     "reviewed_at": "2026-09-07T22:23:27+00:00",
-    "checked_at": "2026-09-07T22:23:27+00:00",
-    "history": []
+    "checked_at": "2026-09-28T06:13:53+00:00",
+    "history": [
+      {
+        "value": "34.5 ±10%",
+        "page": 2,
+        "evidence": "Operating Grid Voltage (kV) 34.5 kV ±10%",
+        "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+        "status": "reviewed",
+        "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+        "checked_at": "2026-09-07T22:23:27+00:00"
+      }
+    ]
   },
   {
     "id": "power-electronics-fp5020mu-pcsm-690-v-ul:frequency_hz",
@@ -343,13 +391,22 @@
     "conditions": "Operating grid frequency.",
     "evidence": "Operating Grid Frequency (Hz) 60 Hz",
     "document": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en",
-    "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+    "revision": "e36e29e2eb0d0d97fd566e120f225cbe9a411f3b0a434a2f10c048da32b24eef",
     "page": 2,
-    "status": "reviewed",
-    "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+    "status": "confirmed",
     "reviewed_at": "2026-09-07T22:23:27+00:00",
-    "checked_at": "2026-09-07T22:23:27+00:00",
-    "history": []
+    "checked_at": "2026-09-28T06:13:53+00:00",
+    "history": [
+      {
+        "value": "60",
+        "page": 2,
+        "evidence": "Operating Grid Frequency (Hz) 60 Hz",
+        "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+        "status": "reviewed",
+        "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+        "checked_at": "2026-09-07T22:23:27+00:00"
+      }
+    ]
   },
   {
     "id": "power-electronics-fp5020mu-pcsm-690-v-ul:efficiency_with_mvt_pct",
@@ -361,13 +418,24 @@
     "evidence": "EFFICIENCY & Efficiency (Max) (η) 98.00% including MV transformer",
     "anchor": "Efficiency (Max) (η) 98.00% including MV transformer",
     "document": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en",
-    "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+    "revision": "e36e29e2eb0d0d97fd566e120f225cbe9a411f3b0a434a2f10c048da32b24eef",
     "page": 2,
-    "status": "reviewed",
-    "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+    "status": "confirmed",
     "reviewed_at": "2026-09-07T22:23:27+00:00",
-    "checked_at": "2026-09-07T22:23:27+00:00",
-    "history": []
+    "checked_at": "2026-09-28T06:13:53+00:00",
+    "history": [
+      {
+        "value": "98.00",
+        "numeric": 98.0,
+        "page": 2,
+        "evidence": "EFFICIENCY & Efficiency (Max) (η) 98.00% including MV transformer",
+        "anchor": "Efficiency (Max) (η) 98.00% including MV transformer",
+        "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+        "status": "reviewed",
+        "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+        "checked_at": "2026-09-07T22:23:27+00:00"
+      }
+    ]
   },
   {
     "id": "power-electronics-fp5020mu-pcsm-690-v-ul:power_factor",
@@ -377,13 +445,22 @@
     "conditions": "Consult the manufacturer P–Q charts per footnote [2]; this is not constant full active power across that range.",
     "evidence": "Power Factor (CosPhi) [2] 0.5 leading … 0.5 lagging",
     "document": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en",
-    "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+    "revision": "e36e29e2eb0d0d97fd566e120f225cbe9a411f3b0a434a2f10c048da32b24eef",
     "page": 2,
-    "status": "reviewed",
-    "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+    "status": "confirmed",
     "reviewed_at": "2026-09-07T22:23:27+00:00",
-    "checked_at": "2026-09-07T22:23:27+00:00",
-    "history": []
+    "checked_at": "2026-09-28T06:13:53+00:00",
+    "history": [
+      {
+        "value": "0.5 leading to 0.5 lagging",
+        "page": 2,
+        "evidence": "Power Factor (CosPhi) [2] 0.5 leading … 0.5 lagging",
+        "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+        "status": "reviewed",
+        "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+        "checked_at": "2026-09-07T22:23:27+00:00"
+      }
+    ]
   },
   {
     "id": "power-electronics-fp5020mu-pcsm-690-v-ul:gfm",
@@ -393,13 +470,22 @@
     "conditions": "Manufacturer capability statement; project controls, operating envelope, and grid-code compliance still need verification.",
     "evidence": "CONTROL Communication Protocol Modbus TCPGrid Forming (VISMA) / Black Start Capable Standard",
     "document": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en",
-    "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+    "revision": "e36e29e2eb0d0d97fd566e120f225cbe9a411f3b0a434a2f10c048da32b24eef",
     "page": 2,
-    "status": "reviewed",
-    "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+    "status": "confirmed",
     "reviewed_at": "2026-09-07T22:23:27+00:00",
-    "checked_at": "2026-09-07T22:23:27+00:00",
-    "history": []
+    "checked_at": "2026-09-28T06:13:53+00:00",
+    "history": [
+      {
+        "value": "Standard (VISMA)",
+        "page": 2,
+        "evidence": "CONTROL Communication Protocol Modbus TCPGrid Forming (VISMA) / Black Start Capable Standard",
+        "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+        "status": "reviewed",
+        "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+        "checked_at": "2026-09-07T22:23:27+00:00"
+      }
+    ]
   },
   {
     "id": "power-electronics-fp5020mu-pcsm-690-v-ul:black_start",
@@ -409,13 +495,22 @@
     "conditions": "Manufacturer capability statement. Auxiliary supply and energization sequence require project validation.",
     "evidence": "CONTROL Communication Protocol Modbus TCPGrid Forming (VISMA) / Black Start Capable Standard",
     "document": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en",
-    "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+    "revision": "e36e29e2eb0d0d97fd566e120f225cbe9a411f3b0a434a2f10c048da32b24eef",
     "page": 2,
-    "status": "reviewed",
-    "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+    "status": "confirmed",
     "reviewed_at": "2026-09-07T22:23:27+00:00",
-    "checked_at": "2026-09-07T22:23:27+00:00",
-    "history": []
+    "checked_at": "2026-09-28T06:13:53+00:00",
+    "history": [
+      {
+        "value": "Standard",
+        "page": 2,
+        "evidence": "CONTROL Communication Protocol Modbus TCPGrid Forming (VISMA) / Black Start Capable Standard",
+        "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+        "status": "reviewed",
+        "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+        "checked_at": "2026-09-07T22:23:27+00:00"
+      }
+    ]
   },
   {
     "id": "power-electronics-fp5020mu-pcsm-690-v-ul:enclosure",
@@ -425,13 +520,22 @@
     "conditions": "Manufacturer datasheet claim.",
     "evidence": "Degree of Protection NEMA 3R",
     "document": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en",
-    "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+    "revision": "e36e29e2eb0d0d97fd566e120f225cbe9a411f3b0a434a2f10c048da32b24eef",
     "page": 2,
-    "status": "reviewed",
-    "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+    "status": "confirmed",
     "reviewed_at": "2026-09-07T22:23:27+00:00",
-    "checked_at": "2026-09-07T22:23:27+00:00",
-    "history": []
+    "checked_at": "2026-09-28T06:13:53+00:00",
+    "history": [
+      {
+        "value": "NEMA 3R",
+        "page": 2,
+        "evidence": "Degree of Protection NEMA 3R",
+        "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+        "status": "reviewed",
+        "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+        "checked_at": "2026-09-07T22:23:27+00:00"
+      }
+    ]
   },
   {
     "id": "power-electronics-fp5020mu-pcsm-690-v-ul:cooling",
@@ -441,13 +545,22 @@
     "conditions": "As stated for this configuration.",
     "evidence": "Type of Ventilation Forced air cooling",
     "document": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en",
-    "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+    "revision": "e36e29e2eb0d0d97fd566e120f225cbe9a411f3b0a434a2f10c048da32b24eef",
     "page": 2,
-    "status": "reviewed",
-    "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+    "status": "confirmed",
     "reviewed_at": "2026-09-07T22:23:27+00:00",
-    "checked_at": "2026-09-07T22:23:27+00:00",
-    "history": []
+    "checked_at": "2026-09-28T06:13:53+00:00",
+    "history": [
+      {
+        "value": "Forced air cooling",
+        "page": 2,
+        "evidence": "Type of Ventilation Forced air cooling",
+        "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+        "status": "reviewed",
+        "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+        "checked_at": "2026-09-07T22:23:27+00:00"
+      }
+    ]
   },
   {
     "id": "power-electronics-fp5020mu-pcsm-690-v-ul:weight_kg",
@@ -458,13 +571,23 @@
     "conditions": "As stated in the 690 V UL datasheet.",
     "evidence": "Weight (kg) 14000",
     "document": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en",
-    "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+    "revision": "e36e29e2eb0d0d97fd566e120f225cbe9a411f3b0a434a2f10c048da32b24eef",
     "page": 2,
-    "status": "reviewed",
-    "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+    "status": "confirmed",
     "reviewed_at": "2026-09-07T22:23:27+00:00",
-    "checked_at": "2026-09-07T22:23:27+00:00",
-    "history": []
+    "checked_at": "2026-09-28T06:13:53+00:00",
+    "history": [
+      {
+        "value": "14000",
+        "numeric": 14000,
+        "page": 2,
+        "evidence": "Weight (kg) 14000",
+        "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+        "status": "reviewed",
+        "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+        "checked_at": "2026-09-07T22:23:27+00:00"
+      }
+    ]
   },
   {
     "id": "power-electronics-fp5020mu-pcsm-690-v-ul:temp_min_c",
@@ -475,13 +598,23 @@
     "conditions": "Optional equipment below -25 °C per footnote [4].",
     "evidence": "Operating Temperature Range [4] From -40 °C to +60 °C, >30 °C power derating",
     "document": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en",
-    "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+    "revision": "e36e29e2eb0d0d97fd566e120f225cbe9a411f3b0a434a2f10c048da32b24eef",
     "page": 2,
-    "status": "reviewed",
-    "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+    "status": "confirmed",
     "reviewed_at": "2026-09-07T22:23:27+00:00",
-    "checked_at": "2026-09-07T22:23:27+00:00",
-    "history": []
+    "checked_at": "2026-09-28T06:13:53+00:00",
+    "history": [
+      {
+        "value": "-40",
+        "numeric": -40,
+        "page": 2,
+        "evidence": "Operating Temperature Range [4] From -40 °C to +60 °C, >30 °C power derating",
+        "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+        "status": "reviewed",
+        "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+        "checked_at": "2026-09-07T22:23:27+00:00"
+      }
+    ]
   },
   {
     "id": "power-electronics-fp5020mu-pcsm-690-v-ul:temp_max_c",
@@ -492,13 +625,23 @@
     "conditions": "Operating maximum; power derates above 30 °C.",
     "evidence": "Operating Temperature Range [4] From -40 °C to +60 °C, >30 °C power derating",
     "document": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en",
-    "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+    "revision": "e36e29e2eb0d0d97fd566e120f225cbe9a411f3b0a434a2f10c048da32b24eef",
     "page": 2,
-    "status": "reviewed",
-    "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+    "status": "confirmed",
     "reviewed_at": "2026-09-07T22:23:27+00:00",
-    "checked_at": "2026-09-07T22:23:27+00:00",
-    "history": []
+    "checked_at": "2026-09-28T06:13:53+00:00",
+    "history": [
+      {
+        "value": "60",
+        "numeric": 60,
+        "page": 2,
+        "evidence": "Operating Temperature Range [4] From -40 °C to +60 °C, >30 °C power derating",
+        "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+        "status": "reviewed",
+        "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+        "checked_at": "2026-09-07T22:23:27+00:00"
+      }
+    ]
   },
   {
     "id": "power-electronics-fp5020mu-pcsm-690-v-ul:derating",
@@ -508,12 +651,21 @@
     "conditions": "Consult supplier derating curves and altitude conditions; full-power DC range also depends on AC voltage.",
     "evidence": "Operating Temperature Range [4] From -40 °C to +60 °C, >30 °C power derating",
     "document": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en",
-    "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+    "revision": "e36e29e2eb0d0d97fd566e120f225cbe9a411f3b0a434a2f10c048da32b24eef",
     "page": 2,
-    "status": "reviewed",
-    "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+    "status": "confirmed",
     "reviewed_at": "2026-09-07T22:23:27+00:00",
-    "checked_at": "2026-09-07T22:23:27+00:00",
-    "history": []
+    "checked_at": "2026-09-28T06:13:53+00:00",
+    "history": [
+      {
+        "value": "Above 30 °C",
+        "page": 2,
+        "evidence": "Operating Temperature Range [4] From -40 °C to +60 °C, >30 °C power derating",
+        "revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+        "status": "reviewed",
+        "reviewed_by": "AI-assisted review (ChatGPT), checked against the datasheet page",
+        "checked_at": "2026-09-07T22:23:27+00:00"
+      }
+    ]
   }
 ]

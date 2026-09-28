@@ -1,5 +1,131 @@
 [
   {
+    "at": "2026-09-28T06:14:17+00:00",
+    "type": "new-datasheet",
+    "summary": "New datasheet found: CPS 1500 Datasheet Aug25 RGB",
+    "document": "cps-1500-datasheet-aug25-rgb",
+    "product": "dynapower-cps-1500",
+    "revision": "2d023e48cb336120cc5fec95f741d845bd515e77bcde00328e70c8d9e32ad5cc"
+  },
+  {
+    "at": "2026-09-28T06:14:01+00:00",
+    "type": "datasheet-revised",
+    "summary": "Datasheet changed: Datasheet PCSM UL GEN 3 (0 values confirmed, 0 updated, 0 need checking)",
+    "document": "powerelectronics-ds-pcsm-ul-1-4-2-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "a462f1f59c6b90fe94bb521a40a7009b1010081915f118bd062a517af6226064",
+    "previous_revision": "e7e906c4afa5ed0bcf9f7da656665a58e536e027138f7c26da245ea7c7408fa4"
+  },
+  {
+    "at": "2026-09-28T06:13:59+00:00",
+    "type": "datasheet-revised",
+    "summary": "Datasheet changed: Datasheet PCSM IEC GEN 3 (0 values confirmed, 0 updated, 0 need checking)",
+    "document": "powerelectronics-ds-pcsm-iec-1-4-2-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "e4a68a32b7dcac1a4d69c55f3ca8e9fbe955ed54e1c91c8a18046f089ee56b78",
+    "previous_revision": "c584030c96d27c75413120b12441bf3e2d007415a5bbeae1683e49042bb7d4df"
+  },
+  {
+    "at": "2026-09-28T06:13:57+00:00",
+    "type": "datasheet-revised",
+    "summary": "Datasheet changed: Datasheet PCSM 720 UL GEN 3 2.0 (0 values confirmed, 0 updated, 0 need checking)",
+    "document": "powerelectronics-ds-pcsm-ul-2-0-0-720v-gen3-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "ff0699fc8c0ff374244e6f58fb550d0784f385fc9c0884c2fbad8b0445012ac4",
+    "previous_revision": "2fd49ba865b58ccd2fcc817b6f588f95a9eebfaff5e1cebd9b76b78d13b800a5"
+  },
+  {
+    "at": "2026-09-28T06:13:56+00:00",
+    "type": "datasheet-revised",
+    "summary": "Datasheet changed: Datasheet PCSM 720 IEC GEN 3 2.0 (0 values confirmed, 0 updated, 0 need checking)",
+    "document": "powerelectronics-ds-pcsm-iec-2-0-0-720v-gen3-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "41148a0771a88541347630f3e1d3f1172370591a8e103396c9b8f9cb464b438e",
+    "previous_revision": "869aa0e49b04b0fd268ad026d8f17a940c0c95fc22627e06e296250ecf2da970"
+  },
+  {
+    "at": "2026-09-28T06:13:53+00:00",
+    "type": "datasheet-revised",
+    "summary": "Datasheet changed: Datasheet PCSM 690 UL GEN 3 2.0 (15 values confirmed, 0 updated, 1 need checking)",
+    "document": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en",
+    "product": "power-electronics-fp5020mu-pcsm-690-v-ul",
+    "revision": "e36e29e2eb0d0d97fd566e120f225cbe9a411f3b0a434a2f10c048da32b24eef",
+    "previous_revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855"
+  },
+  {
+    "at": "2026-09-28T06:13:53+00:00",
+    "type": "needs-check",
+    "summary": "DC range at full power was not found in the new datasheet; showing the previous value",
+    "product": "power-electronics-fp5020mu-pcsm-690-v-ul",
+    "field": "full_power_dc_range",
+    "document": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en",
+    "revision": "e36e29e2eb0d0d97fd566e120f225cbe9a411f3b0a434a2f10c048da32b24eef",
+    "previous_revision": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855"
+  },
+  {
+    "at": "2026-09-28T06:13:51+00:00",
+    "type": "datasheet-revised",
+    "summary": "Datasheet changed: Datasheet PCSM 690 IEC GEN 3 2.0 (0 values confirmed, 0 updated, 0 need checking)",
+    "document": "powerelectronics-ds-pcsm-iec-2-0-0-690v-gen3-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "2cb3e9847475385a835782709a1408dbc026ab78807b714439daa3e37e0487fe",
+    "previous_revision": "e4d82aad98659e331df5eff12587472470a31c8da1c1838204d174e8e1c230e6"
+  },
+  {
+    "at": "2026-09-28T06:13:49+00:00",
+    "type": "datasheet-revised",
+    "summary": "Datasheet changed: Datasheet Multi PCSM UL GEN 3 (0 values confirmed, 0 updated, 0 need checking)",
+    "document": "powerelectronics-ds-multipcsm-ul-1-4-2-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "51542833a890a04a0b6722680d9b72a8437ee6d28bd36ca1aeeb2fcb4e7c0e27",
+    "previous_revision": "8cebabc71c99df66cb0697469f90fa64b03a032666eedb945147d1ddab871324"
+  },
+  {
+    "at": "2026-09-28T06:13:47+00:00",
+    "type": "datasheet-revised",
+    "summary": "Datasheet changed: Datasheet Multi PCSM IEC GEN 3 (0 values confirmed, 0 updated, 0 need checking)",
+    "document": "powerelectronics-ds-multipcsm-iec-1-4-2-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "0147c306a08f00218ced24a9e37c0469ab5069c0ab99dea898dff2cf3380438c",
+    "previous_revision": "03c018813c646fa9f650875b6fbc766637ec598a7950ae2ac7d659c460e58220"
+  },
+  {
+    "at": "2026-09-28T06:13:45+00:00",
+    "type": "datasheet-revised",
+    "summary": "Datasheet changed: Datasheet Multi PCSM 720 UL GEN 3 2.0 (0 values confirmed, 0 updated, 0 need checking)",
+    "document": "powerelectronics-ds-multipcsm-ul-2-0-0-720v-gen3-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "4c06844e96d4791055b52bc3f81aa44247f4f283183007d03c00d05cd908ba57",
+    "previous_revision": "054efc7c6e270b33f16b285c890550d5b7f1e98500c9cc0ed60beb3a4dd2a2aa"
+  },
+  {
+    "at": "2026-09-28T06:13:43+00:00",
+    "type": "datasheet-revised",
+    "summary": "Datasheet changed: Datasheet Multi PCSM 720 IEC GEN 3 2.0 (0 values confirmed, 0 updated, 0 need checking)",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-720v-gen3-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "7448d8da3a927ce627567a10e9ccdc43e2dee83cc4880e35f6168b2f3d226a8a",
+    "previous_revision": "588989ef0498618567e42ca15d062e6c49cb63955b1383783e09f1d21fde7a69"
+  },
+  {
+    "at": "2026-09-28T06:13:41+00:00",
+    "type": "datasheet-revised",
+    "summary": "Datasheet changed: Datasheet Multi PCSM 690 UL GEN 3 2.0 (0 values confirmed, 0 updated, 0 need checking)",
+    "document": "powerelectronics-ds-multipcsm-ul-2-0-0-690v-gen3-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "f14096a0ce7dd0df3315c7416bbcadc7ea6a887d4312f4e3bae191bf05052005",
+    "previous_revision": "ce8ad9ab1fa1100e16596c895d2b4b5913bf378d1fad5f19c20c6dda6e276c88"
+  },
+  {
+    "at": "2026-09-28T06:13:39+00:00",
+    "type": "datasheet-revised",
+    "summary": "Datasheet changed: Datasheet Multi PCSM 690 IEC GEN 3 2.0 (0 values confirmed, 0 updated, 0 need checking)",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-690v-gen3-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "95950dc5528fa0796bba47e73caff42ef6b6847ae793c040f8a4c3cbb86d9c50",
+    "previous_revision": "36d52b558dd4d3660455fce7be92c915df1f3a6e750c6ef0186c32dfff4666cf"
+  },
+  {
     "at": "2026-09-07T22:23:27+00:00",
     "type": "import",
     "summary": "Initial catalog: 13 datasheets archived and 31 values reviewed across 2 models"
