@@ -1,14 +1,16 @@
 {
-  "last_run_started": "2026-09-28T06:52:15+00:00",
-  "last_run_finished": "2026-09-28T06:53:18+00:00",
+  "last_run_started": "2026-09-28T06:59:24+00:00",
+  "last_run_finished": "2026-09-28T07:00:27+00:00",
   "interval_hours": 24.0,
   "summary": {
     "sources_checked": 10,
     "files_checked": 19,
-    "new_documents": 1,
+    "new_documents": 0,
     "new_revisions": 0,
     "values_updated": 0,
     "values_need_check": 0,
+    "values_extracted": 1247,
+    "models_added": 74,
     "errors": 2
   },
   "sources": [

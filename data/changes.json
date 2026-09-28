@@ -1,5 +1,676 @@
 [
   {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "values-extracted",
+    "summary": "7 values read from PWX1 1575KTL H EX NA Datasheet 20260115",
+    "document": "pwx1-1575ktl-h-ex-na-datasheet-20260115",
+    "product": "sinexcel-stellaon-1575k",
+    "revision": "effa4205ce87489579c7497767f3dda064825b2dab249cab5b9a066365674472",
+    "count": 7
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Sinexcel PWX1-1575KTL-H-EX",
+    "product": "sinexcel-pwx1-1575ktl-h-ex",
+    "document": "pwx1-1575ktl-h-ex-na-datasheet-20260115"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "values-extracted",
+    "summary": "15 values read from SolarwareNinjaBrochure0523 web",
+    "document": "solarwareninjabrochure0523-web",
+    "product": "tmeic-energy-storage-pcs",
+    "revision": "0caecc648fb58857025397b9a68a1a1222c8b6feb63e76f6ec852596ea8eb0f1",
+    "count": 15
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: TMEIC BSU-L0840GR",
+    "product": "tmeic-bsu-l0840gr",
+    "document": "solarwareninjabrochure0523-web"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: TMEIC BSU-L0800GR",
+    "product": "tmeic-bsu-l0800gr",
+    "document": "solarwareninjabrochure0523-web"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: TMEIC BSU-L0640GR",
+    "product": "tmeic-bsu-l0640gr",
+    "document": "solarwareninjabrochure0523-web"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "values-extracted",
+    "summary": "32 values read from SCS UP XT US DS en 24",
+    "document": "scs-up-xt-us-ds-en-24",
+    "product": "sma-sunny-central-storage-up-xt-us",
+    "revision": "068edae78341c5a4edb73f237d05aa0bfa2f57d3963fd9dca054738b73781011",
+    "count": 32
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: SMA SCS 3950 UP-XT-US",
+    "product": "sma-scs-3950-up-xt-us",
+    "document": "scs-up-xt-us-ds-en-24"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: SMA SCS 3800 UP-XT-US",
+    "product": "sma-scs-3800-up-xt-us",
+    "document": "scs-up-xt-us-ds-en-24"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: SMA SCS 3600 UP-XT-US",
+    "product": "sma-scs-3600-up-xt-us",
+    "document": "scs-up-xt-us-ds-en-24"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: SMA SCS 3540 UP-XT-US",
+    "product": "sma-scs-3540-up-xt-us",
+    "document": "scs-up-xt-us-ds-en-24"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "values-extracted",
+    "summary": "13 values read from CPS 1500 Datasheet Aug25 RGB",
+    "document": "cps-1500-datasheet-aug25-rgb",
+    "product": "dynapower-cps-1500",
+    "revision": "2d023e48cb336120cc5fec95f741d845bd515e77bcde00328e70c8d9e32ad5cc",
+    "count": 13
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "values-extracted",
+    "summary": "2 values read from SC5000UD-MV-US-P3 datasheet",
+    "document": "sungrow-sc5000ud-mv-us-p3",
+    "product": "sungrow-sc5000ud-mv-us-p3",
+    "revision": "a0b9f98148d0f5a71ba33d4df3f7ea094734fd5f4bbb10183e79e23153ddff39",
+    "count": 2
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "values-extracted",
+    "summary": "160 values read from Datasheet Multi PCSM UL GEN 3",
+    "document": "powerelectronics-ds-multipcsm-ul-1-4-2-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "51542833a890a04a0b6722680d9b72a8437ee6d28bd36ca1aeeb2fcb4e7c0e27",
+    "count": 160
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4204M4",
+    "product": "power-electronics-fp4204m4",
+    "document": "powerelectronics-ds-multipcsm-ul-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4204M2",
+    "product": "power-electronics-fp4204m2",
+    "document": "powerelectronics-ds-multipcsm-ul-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4201M4",
+    "product": "power-electronics-fp4201m4",
+    "document": "powerelectronics-ds-multipcsm-ul-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4201M2",
+    "product": "power-electronics-fp4201m2",
+    "document": "powerelectronics-ds-multipcsm-ul-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4200M4",
+    "product": "power-electronics-fp4200m4",
+    "document": "powerelectronics-ds-multipcsm-ul-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4200M2",
+    "product": "power-electronics-fp4200m2",
+    "document": "powerelectronics-ds-multipcsm-ul-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4105M4",
+    "product": "power-electronics-fp4105m4",
+    "document": "powerelectronics-ds-multipcsm-ul-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4105M2",
+    "product": "power-electronics-fp4105m2",
+    "document": "powerelectronics-ds-multipcsm-ul-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4010M4",
+    "product": "power-electronics-fp4010m4",
+    "document": "powerelectronics-ds-multipcsm-ul-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4010M2",
+    "product": "power-electronics-fp4010m2",
+    "document": "powerelectronics-ds-multipcsm-ul-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "values-extracted",
+    "summary": "160 values read from Datasheet Multi PCSM IEC GEN 3",
+    "document": "powerelectronics-ds-multipcsm-iec-1-4-2-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "0147c306a08f00218ced24a9e37c0469ab5069c0ab99dea898dff2cf3380438c",
+    "count": 160
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4207MH4",
+    "product": "power-electronics-fp4207mh4",
+    "document": "powerelectronics-ds-multipcsm-iec-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4207MH2",
+    "product": "power-electronics-fp4207mh2",
+    "document": "powerelectronics-ds-multipcsm-iec-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4203MH4",
+    "product": "power-electronics-fp4203mh4",
+    "document": "powerelectronics-ds-multipcsm-iec-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4203MH2",
+    "product": "power-electronics-fp4203mh2",
+    "document": "powerelectronics-ds-multipcsm-iec-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4200MH4",
+    "product": "power-electronics-fp4200mh4",
+    "document": "powerelectronics-ds-multipcsm-iec-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4200MH2",
+    "product": "power-electronics-fp4200mh2",
+    "document": "powerelectronics-ds-multipcsm-iec-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4105MH4",
+    "product": "power-electronics-fp4105mh4",
+    "document": "powerelectronics-ds-multipcsm-iec-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4105MH2",
+    "product": "power-electronics-fp4105mh2",
+    "document": "powerelectronics-ds-multipcsm-iec-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4010MH4",
+    "product": "power-electronics-fp4010mh4",
+    "document": "powerelectronics-ds-multipcsm-iec-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4010MH2",
+    "product": "power-electronics-fp4010mh2",
+    "document": "powerelectronics-ds-multipcsm-iec-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "values-extracted",
+    "summary": "38 values read from Datasheet Multi PCSM 720 UL GEN 3 2.0",
+    "document": "powerelectronics-ds-multipcsm-ul-2-0-0-720v-gen3-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "4c06844e96d4791055b52bc3f81aa44247f4f283183007d03c00d05cd908ba57",
+    "count": 38
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5150MU4",
+    "product": "power-electronics-fp5150mu4",
+    "document": "powerelectronics-ds-multipcsm-ul-2-0-0-720v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:27+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5150MU2",
+    "product": "power-electronics-fp5150mu2",
+    "document": "powerelectronics-ds-multipcsm-ul-2-0-0-720v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "values-extracted",
+    "summary": "152 values read from Datasheet Multi PCSM 720 IEC GEN 3 2.0",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-720v-gen3-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "7448d8da3a927ce627567a10e9ccdc43e2dee83cc4880e35f6168b2f3d226a8a",
+    "count": 152
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5156MH4",
+    "product": "power-electronics-fp5156mh4",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-720v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5156MH2",
+    "product": "power-electronics-fp5156mh2",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-720v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5152MH4",
+    "product": "power-electronics-fp5152mh4",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-720v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5152MH2",
+    "product": "power-electronics-fp5152mh2",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-720v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5151MH4",
+    "product": "power-electronics-fp5151mh4",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-720v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5151MH2",
+    "product": "power-electronics-fp5151mh2",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-720v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5150MH4",
+    "product": "power-electronics-fp5150mh4",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-720v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5150MH2",
+    "product": "power-electronics-fp5150mh2",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-720v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "values-extracted",
+    "summary": "38 values read from Datasheet Multi PCSM 690 UL GEN 3 2.0",
+    "document": "powerelectronics-ds-multipcsm-ul-2-0-0-690v-gen3-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "f14096a0ce7dd0df3315c7416bbcadc7ea6a887d4312f4e3bae191bf05052005",
+    "count": 38
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5020MU4",
+    "product": "power-electronics-fp5020mu4",
+    "document": "powerelectronics-ds-multipcsm-ul-2-0-0-690v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5020MU2",
+    "product": "power-electronics-fp5020mu2",
+    "document": "powerelectronics-ds-multipcsm-ul-2-0-0-690v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "values-extracted",
+    "summary": "247 values read from Datasheet Multi PCSM 690 IEC GEN 3 2.0",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-690v-gen3-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "95950dc5528fa0796bba47e73caff42ef6b6847ae793c040f8a4c3cbb86d9c50",
+    "count": 247
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5026MH4",
+    "product": "power-electronics-fp5026mh4",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-690v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5026MH2",
+    "product": "power-electronics-fp5026mh2",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-690v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5023MH4",
+    "product": "power-electronics-fp5023mh4",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-690v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5023MH2",
+    "product": "power-electronics-fp5023mh2",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-690v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5023MH",
+    "product": "power-electronics-fp5023mh",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-690v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5022MH4",
+    "product": "power-electronics-fp5022mh4",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-690v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5022MH2",
+    "product": "power-electronics-fp5022mh2",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-690v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5021MH4",
+    "product": "power-electronics-fp5021mh4",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-690v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5021MH2",
+    "product": "power-electronics-fp5021mh2",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-690v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5020MH4",
+    "product": "power-electronics-fp5020mh4",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-690v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5020MH2",
+    "product": "power-electronics-fp5020mh2",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-690v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4999MH4",
+    "product": "power-electronics-fp4999mh4",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-690v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4999MH2",
+    "product": "power-electronics-fp4999mh2",
+    "document": "powerelectronics-ds-multipcsm-iec-2-0-0-690v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "values-extracted",
+    "summary": "85 values read from Datasheet PCSM UL GEN 3",
+    "document": "powerelectronics-ds-pcsm-ul-1-4-2-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "a462f1f59c6b90fe94bb521a40a7009b1010081915f118bd062a517af6226064",
+    "count": 85
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4204M",
+    "product": "power-electronics-fp4204m",
+    "document": "powerelectronics-ds-pcsm-ul-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4201M",
+    "product": "power-electronics-fp4201m",
+    "document": "powerelectronics-ds-pcsm-ul-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4200M",
+    "product": "power-electronics-fp4200m",
+    "document": "powerelectronics-ds-pcsm-ul-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4105M",
+    "product": "power-electronics-fp4105m",
+    "document": "powerelectronics-ds-pcsm-ul-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4010M",
+    "product": "power-electronics-fp4010m",
+    "document": "powerelectronics-ds-pcsm-ul-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "values-extracted",
+    "summary": "85 values read from Datasheet PCSM IEC GEN 3",
+    "document": "powerelectronics-ds-pcsm-iec-1-4-2-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "e4a68a32b7dcac1a4d69c55f3ca8e9fbe955ed54e1c91c8a18046f089ee56b78",
+    "count": 85
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4207MH",
+    "product": "power-electronics-fp4207mh",
+    "document": "powerelectronics-ds-pcsm-iec-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4203MH",
+    "product": "power-electronics-fp4203mh",
+    "document": "powerelectronics-ds-pcsm-iec-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4200MH",
+    "product": "power-electronics-fp4200mh",
+    "document": "powerelectronics-ds-pcsm-iec-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4105MH",
+    "product": "power-electronics-fp4105mh",
+    "document": "powerelectronics-ds-pcsm-iec-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4010MH",
+    "product": "power-electronics-fp4010mh",
+    "document": "powerelectronics-ds-pcsm-iec-1-4-2-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "values-extracted",
+    "summary": "38 values read from Datasheet PCSM 720 UL GEN 3 2.0",
+    "document": "powerelectronics-ds-pcsm-ul-2-0-0-720v-gen3-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "ff0699fc8c0ff374244e6f58fb550d0784f385fc9c0884c2fbad8b0445012ac4",
+    "count": 38
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5150MU",
+    "product": "power-electronics-fp5150mu",
+    "document": "powerelectronics-ds-pcsm-ul-2-0-0-720v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4998MU",
+    "product": "power-electronics-fp4998mu",
+    "document": "powerelectronics-ds-pcsm-ul-2-0-0-720v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "values-extracted",
+    "summary": "76 values read from Datasheet PCSM 720 IEC GEN 3 2.0",
+    "document": "powerelectronics-ds-pcsm-iec-2-0-0-720v-gen3-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "41148a0771a88541347630f3e1d3f1172370591a8e103396c9b8f9cb464b438e",
+    "count": 76
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5156MH",
+    "product": "power-electronics-fp5156mh",
+    "document": "powerelectronics-ds-pcsm-iec-2-0-0-720v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5152MH",
+    "product": "power-electronics-fp5152mh",
+    "document": "powerelectronics-ds-pcsm-iec-2-0-0-720v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5151MH",
+    "product": "power-electronics-fp5151mh",
+    "document": "powerelectronics-ds-pcsm-iec-2-0-0-720v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5150MH",
+    "product": "power-electronics-fp5150mh",
+    "document": "powerelectronics-ds-pcsm-iec-2-0-0-720v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "values-extracted",
+    "summary": "23 values read from Datasheet PCSM 690 UL GEN 3 2.0",
+    "document": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en",
+    "product": "power-electronics-fp5020mu-pcsm-690-v-ul",
+    "revision": "e36e29e2eb0d0d97fd566e120f225cbe9a411f3b0a434a2f10c048da32b24eef",
+    "count": 23
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP4997MU",
+    "product": "power-electronics-fp4997mu",
+    "document": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "values-extracted",
+    "summary": "76 values read from Datasheet PCSM 690 IEC GEN 3 2.0",
+    "document": "powerelectronics-ds-pcsm-iec-2-0-0-690v-gen3-en",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "revision": "2cb3e9847475385a835782709a1408dbc026ab78807b714439daa3e37e0487fe",
+    "count": 76
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5026MH",
+    "product": "power-electronics-fp5026mh",
+    "document": "powerelectronics-ds-pcsm-iec-2-0-0-690v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5022MH",
+    "product": "power-electronics-fp5022mh",
+    "document": "powerelectronics-ds-pcsm-iec-2-0-0-690v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5021MH",
+    "product": "power-electronics-fp5021mh",
+    "document": "powerelectronics-ds-pcsm-iec-2-0-0-690v-gen3-en"
+  },
+  {
+    "at": "2026-09-28T07:00:26+00:00",
+    "type": "new-model",
+    "summary": "New model found in a datasheet: Power Electronics FP5020MH",
+    "product": "power-electronics-fp5020mh",
+    "document": "powerelectronics-ds-pcsm-iec-2-0-0-690v-gen3-en"
+  },
+  {
     "at": "2026-09-28T06:53:08+00:00",
     "type": "new-datasheet",
     "summary": "New datasheet found: PWX1 1575KTL H EX NA Datasheet 20260115",

@@ -7,7 +7,7 @@
     "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-PCSM-IEC-2.0.0-690V-GEN3-EN.pdf",
     "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
     "first_seen": "2026-09-07T22:18:13+00:00",
-    "last_checked": "2026-09-28T06:52:32+00:00",
+    "last_checked": "2026-09-28T06:59:41+00:00",
     "revisions": [
       {
         "sha256": "e4d82aad98659e331df5eff12587472470a31c8da1c1838204d174e8e1c230e6",
@@ -23,8 +23,15 @@
         "pages": 2,
         "captured_at": "2026-09-28T06:13:51+00:00",
         "etag": "\"6ed458a8d57bb2794ffc7d2a794fcd8e\"",
-        "last_modified": "Mon, 21 Sep 2026 11:58:12 GMT"
+        "last_modified": "Mon, 21 Sep 2026 11:58:12 GMT",
+        "extracted": "rules-1"
       }
+    ],
+    "models": [
+      "power-electronics-fp5020mh",
+      "power-electronics-fp5021mh",
+      "power-electronics-fp5022mh",
+      "power-electronics-fp5026mh"
     ]
   },
   {
@@ -35,7 +42,7 @@
     "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-PCSM-UL-2.0.0-690V-GEN3-EN.pdf",
     "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
     "first_seen": "2026-09-07T22:18:21+00:00",
-    "last_checked": "2026-09-28T06:52:34+00:00",
+    "last_checked": "2026-09-28T06:59:43+00:00",
     "revisions": [
       {
         "sha256": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
@@ -51,8 +58,13 @@
         "pages": 2,
         "captured_at": "2026-09-28T06:13:53+00:00",
         "etag": "\"87dc4048058c08db27b76d5c6afde743\"",
-        "last_modified": "Mon, 21 Sep 2026 11:58:11 GMT"
+        "last_modified": "Mon, 21 Sep 2026 11:58:11 GMT",
+        "extracted": "rules-1"
       }
+    ],
+    "models": [
+      "power-electronics-fp4997mu",
+      "power-electronics-fp5020mu-pcsm-690-v-ul"
     ]
   },
   {
@@ -63,7 +75,7 @@
     "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-PCSM-IEC-2.0.0-720V-GEN3-EN.pdf",
     "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
     "first_seen": "2026-09-07T22:18:29+00:00",
-    "last_checked": "2026-09-28T06:52:36+00:00",
+    "last_checked": "2026-09-28T06:59:45+00:00",
     "revisions": [
       {
         "sha256": "869aa0e49b04b0fd268ad026d8f17a940c0c95fc22627e06e296250ecf2da970",
@@ -79,8 +91,15 @@
         "pages": 2,
         "captured_at": "2026-09-28T06:13:56+00:00",
         "etag": "\"1a2cde34e0ff650f3d784b7af8c00d16\"",
-        "last_modified": "Mon, 21 Sep 2026 11:58:11 GMT"
+        "last_modified": "Mon, 21 Sep 2026 11:58:11 GMT",
+        "extracted": "rules-1"
       }
+    ],
+    "models": [
+      "power-electronics-fp5150mh",
+      "power-electronics-fp5151mh",
+      "power-electronics-fp5152mh",
+      "power-electronics-fp5156mh"
     ]
   },
   {
@@ -91,7 +110,7 @@
     "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-PCSM-UL-2.0.0-720V-GEN3-EN.pdf",
     "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
     "first_seen": "2026-09-07T22:18:37+00:00",
-    "last_checked": "2026-09-28T06:52:38+00:00",
+    "last_checked": "2026-09-28T06:59:47+00:00",
     "revisions": [
       {
         "sha256": "2fd49ba865b58ccd2fcc817b6f588f95a9eebfaff5e1cebd9b76b78d13b800a5",
@@ -107,8 +126,13 @@
         "pages": 2,
         "captured_at": "2026-09-28T06:13:57+00:00",
         "etag": "\"71f6fff709f90f6b2a2b7ff19cc7c582\"",
-        "last_modified": "Mon, 21 Sep 2026 11:58:10 GMT"
+        "last_modified": "Mon, 21 Sep 2026 11:58:10 GMT",
+        "extracted": "rules-1"
       }
+    ],
+    "models": [
+      "power-electronics-fp4998mu",
+      "power-electronics-fp5150mu"
     ]
   },
   {
@@ -119,7 +143,7 @@
     "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-PCSM-IEC-1.4.2-EN.pdf",
     "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
     "first_seen": "2026-09-07T22:18:44+00:00",
-    "last_checked": "2026-09-28T06:52:40+00:00",
+    "last_checked": "2026-09-28T06:59:49+00:00",
     "revisions": [
       {
         "sha256": "c584030c96d27c75413120b12441bf3e2d007415a5bbeae1683e49042bb7d4df",
@@ -135,8 +159,16 @@
         "pages": 3,
         "captured_at": "2026-09-28T06:13:59+00:00",
         "etag": "\"bdd43e234d67695df3a24650f653f6bf\"",
-        "last_modified": "Mon, 21 Sep 2026 11:58:13 GMT"
+        "last_modified": "Mon, 21 Sep 2026 11:58:13 GMT",
+        "extracted": "rules-1"
       }
+    ],
+    "models": [
+      "power-electronics-fp4010mh",
+      "power-electronics-fp4105mh",
+      "power-electronics-fp4200mh",
+      "power-electronics-fp4203mh",
+      "power-electronics-fp4207mh"
     ]
   },
   {
@@ -147,7 +179,7 @@
     "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-PCSM-UL-1.4.2-EN.pdf",
     "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
     "first_seen": "2026-09-07T22:18:52+00:00",
-    "last_checked": "2026-09-28T06:52:42+00:00",
+    "last_checked": "2026-09-28T06:59:51+00:00",
     "revisions": [
       {
         "sha256": "e7e906c4afa5ed0bcf9f7da656665a58e536e027138f7c26da245ea7c7408fa4",
@@ -163,8 +195,16 @@
         "pages": 3,
         "captured_at": "2026-09-28T06:14:01+00:00",
         "etag": "\"87e531a0b3f5e7825f6706b0def01442\"",
-        "last_modified": "Mon, 21 Sep 2026 11:58:12 GMT"
+        "last_modified": "Mon, 21 Sep 2026 11:58:12 GMT",
+        "extracted": "rules-1"
       }
+    ],
+    "models": [
+      "power-electronics-fp4010m",
+      "power-electronics-fp4105m",
+      "power-electronics-fp4200m",
+      "power-electronics-fp4201m",
+      "power-electronics-fp4204m"
     ]
   },
   {
@@ -175,7 +215,7 @@
     "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-MULTIPCSM-IEC-2.0.0-690V-GEN3-EN.pdf",
     "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
     "first_seen": "2026-09-07T22:19:00+00:00",
-    "last_checked": "2026-09-28T06:52:20+00:00",
+    "last_checked": "2026-09-28T06:59:29+00:00",
     "revisions": [
       {
         "sha256": "36d52b558dd4d3660455fce7be92c915df1f3a6e750c6ef0186c32dfff4666cf",
@@ -191,8 +231,24 @@
         "pages": 5,
         "captured_at": "2026-09-28T06:13:39+00:00",
         "etag": "\"f73afedd2139b9131fd612203ae5a5db\"",
-        "last_modified": "Mon, 21 Sep 2026 11:58:09 GMT"
+        "last_modified": "Mon, 21 Sep 2026 11:58:09 GMT",
+        "extracted": "rules-1"
       }
+    ],
+    "models": [
+      "power-electronics-fp4999mh2",
+      "power-electronics-fp4999mh4",
+      "power-electronics-fp5020mh2",
+      "power-electronics-fp5020mh4",
+      "power-electronics-fp5021mh2",
+      "power-electronics-fp5021mh4",
+      "power-electronics-fp5022mh2",
+      "power-electronics-fp5022mh4",
+      "power-electronics-fp5023mh",
+      "power-electronics-fp5023mh2",
+      "power-electronics-fp5023mh4",
+      "power-electronics-fp5026mh2",
+      "power-electronics-fp5026mh4"
     ]
   },
   {
@@ -203,7 +259,7 @@
     "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-MULTIPCSM-UL-2.0.0-690V-GEN3-EN.pdf",
     "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
     "first_seen": "2026-09-07T22:19:07+00:00",
-    "last_checked": "2026-09-28T06:52:22+00:00",
+    "last_checked": "2026-09-28T06:59:31+00:00",
     "revisions": [
       {
         "sha256": "ce8ad9ab1fa1100e16596c895d2b4b5913bf378d1fad5f19c20c6dda6e276c88",
@@ -219,8 +275,13 @@
         "pages": 2,
         "captured_at": "2026-09-28T06:13:41+00:00",
         "etag": "\"d7e51e42f497b07ea3ec19fdc617856f\"",
-        "last_modified": "Mon, 21 Sep 2026 11:58:07 GMT"
+        "last_modified": "Mon, 21 Sep 2026 11:58:07 GMT",
+        "extracted": "rules-1"
       }
+    ],
+    "models": [
+      "power-electronics-fp5020mu2",
+      "power-electronics-fp5020mu4"
     ]
   },
   {
@@ -231,7 +292,7 @@
     "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-MULTIPCSM-IEC-2.0.0-720V-GEN3-EN.pdf",
     "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
     "first_seen": "2026-09-07T22:19:15+00:00",
-    "last_checked": "2026-09-28T06:52:24+00:00",
+    "last_checked": "2026-09-28T06:59:33+00:00",
     "revisions": [
       {
         "sha256": "588989ef0498618567e42ca15d062e6c49cb63955b1383783e09f1d21fde7a69",
@@ -247,8 +308,19 @@
         "pages": 3,
         "captured_at": "2026-09-28T06:13:43+00:00",
         "etag": "\"04e8b3673a001a8eebda8cadaf33fdb9\"",
-        "last_modified": "Mon, 21 Sep 2026 11:58:08 GMT"
+        "last_modified": "Mon, 21 Sep 2026 11:58:08 GMT",
+        "extracted": "rules-1"
       }
+    ],
+    "models": [
+      "power-electronics-fp5150mh2",
+      "power-electronics-fp5150mh4",
+      "power-electronics-fp5151mh2",
+      "power-electronics-fp5151mh4",
+      "power-electronics-fp5152mh2",
+      "power-electronics-fp5152mh4",
+      "power-electronics-fp5156mh2",
+      "power-electronics-fp5156mh4"
     ]
   },
   {
@@ -259,7 +331,7 @@
     "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-MULTIPCSM-UL-2.0.0-720V-GEN3-EN.pdf",
     "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
     "first_seen": "2026-09-07T22:19:23+00:00",
-    "last_checked": "2026-09-28T06:52:26+00:00",
+    "last_checked": "2026-09-28T06:59:35+00:00",
     "revisions": [
       {
         "sha256": "054efc7c6e270b33f16b285c890550d5b7f1e98500c9cc0ed60beb3a4dd2a2aa",
@@ -275,8 +347,13 @@
         "pages": 2,
         "captured_at": "2026-09-28T06:13:45+00:00",
         "etag": "\"ce71cc4730a1665437fe453d654cfe63\"",
-        "last_modified": "Mon, 21 Sep 2026 11:58:07 GMT"
+        "last_modified": "Mon, 21 Sep 2026 11:58:07 GMT",
+        "extracted": "rules-1"
       }
+    ],
+    "models": [
+      "power-electronics-fp5150mu2",
+      "power-electronics-fp5150mu4"
     ]
   },
   {
@@ -287,7 +364,7 @@
     "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-MULTIPCSM-IEC-1.4.2-EN.pdf",
     "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
     "first_seen": "2026-09-07T22:19:31+00:00",
-    "last_checked": "2026-09-28T06:52:28+00:00",
+    "last_checked": "2026-09-28T06:59:37+00:00",
     "revisions": [
       {
         "sha256": "03c018813c646fa9f650875b6fbc766637ec598a7950ae2ac7d659c460e58220",
@@ -303,8 +380,21 @@
         "pages": 4,
         "captured_at": "2026-09-28T06:13:47+00:00",
         "etag": "\"a9c8fa2f429474ff2c47110e9b105a69\"",
-        "last_modified": "Mon, 21 Sep 2026 11:58:10 GMT"
+        "last_modified": "Mon, 21 Sep 2026 11:58:10 GMT",
+        "extracted": "rules-1"
       }
+    ],
+    "models": [
+      "power-electronics-fp4010mh2",
+      "power-electronics-fp4010mh4",
+      "power-electronics-fp4105mh2",
+      "power-electronics-fp4105mh4",
+      "power-electronics-fp4200mh2",
+      "power-electronics-fp4200mh4",
+      "power-electronics-fp4203mh2",
+      "power-electronics-fp4203mh4",
+      "power-electronics-fp4207mh2",
+      "power-electronics-fp4207mh4"
     ]
   },
   {
@@ -315,7 +405,7 @@
     "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-MULTIPCSM-UL-1.4.2-EN.pdf",
     "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
     "first_seen": "2026-09-07T22:19:38+00:00",
-    "last_checked": "2026-09-28T06:52:30+00:00",
+    "last_checked": "2026-09-28T06:59:39+00:00",
     "revisions": [
       {
         "sha256": "8cebabc71c99df66cb0697469f90fa64b03a032666eedb945147d1ddab871324",
@@ -331,8 +421,21 @@
         "pages": 4,
         "captured_at": "2026-09-28T06:13:49+00:00",
         "etag": "\"7cae055f220639f9636ae9cf121ebcd4\"",
-        "last_modified": "Mon, 21 Sep 2026 11:58:09 GMT"
+        "last_modified": "Mon, 21 Sep 2026 11:58:09 GMT",
+        "extracted": "rules-1"
       }
+    ],
+    "models": [
+      "power-electronics-fp4010m2",
+      "power-electronics-fp4010m4",
+      "power-electronics-fp4105m2",
+      "power-electronics-fp4105m4",
+      "power-electronics-fp4200m2",
+      "power-electronics-fp4200m4",
+      "power-electronics-fp4201m2",
+      "power-electronics-fp4201m4",
+      "power-electronics-fp4204m2",
+      "power-electronics-fp4204m4"
     ]
   },
   {
@@ -343,15 +446,19 @@
     "url": "https://info-support.sungrowpower.com/datasheet-materials/141a8fd9-bd55-45eb-bed1-02ca586002d4.pdf",
     "source_url": "https://info-support.sungrowpower.com/datasheet-materials/141a8fd9-bd55-45eb-bed1-02ca586002d4.pdf",
     "first_seen": "2026-09-07T22:19:40+00:00",
-    "last_checked": "2026-09-28T06:52:57+00:00",
+    "last_checked": "2026-09-28T07:00:06+00:00",
     "revisions": [
       {
         "sha256": "a0b9f98148d0f5a71ba33d4df3f7ea094734fd5f4bbb10183e79e23153ddff39",
         "file": "datasheets/a0b9f98148d0/Sungrow-SC5000UD-MV-US-P3.pdf",
         "bytes": 767233,
         "pages": 2,
-        "captured_at": "2026-09-07T22:19:40+00:00"
+        "captured_at": "2026-09-07T22:19:40+00:00",
+        "extracted": "rules-1"
       }
+    ],
+    "models": [
+      "sungrow-sc5000ud-mv-us-p3"
     ]
   },
   {
@@ -362,7 +469,7 @@
     "url": "https://dynapower.com/wp-content/uploads/2022/10/CPS-1500-Datasheet_Aug25_RGB.pdf",
     "source_url": "https://dynapower.com/resource/data-sheet-cps-1500-energy-storage-inverter/",
     "first_seen": "2026-09-28T06:14:17+00:00",
-    "last_checked": "2026-09-28T06:53:03+00:00",
+    "last_checked": "2026-09-28T07:00:13+00:00",
     "revisions": [
       {
         "sha256": "2d023e48cb336120cc5fec95f741d845bd515e77bcde00328e70c8d9e32ad5cc",
@@ -371,8 +478,12 @@
         "pages": 3,
         "captured_at": "2026-09-28T06:14:17+00:00",
         "etag": "\"68d549d9-8ed76\"",
-        "last_modified": "Thu, 25 Sep 2025 13:55:37 GMT"
+        "last_modified": "Thu, 25 Sep 2025 13:55:37 GMT",
+        "extracted": "rules-1"
       }
+    ],
+    "models": [
+      "dynapower-cps-1500"
     ]
   },
   {
@@ -383,7 +494,7 @@
     "url": "https://files.sma.de/downloads/SCS-UP-XT-US-DS-en-24.pdf",
     "source_url": "https://files.sma.de/downloads/SCS-UP-XT-US-DS-en-24.pdf",
     "first_seen": "2026-09-28T06:20:29+00:00",
-    "last_checked": "2026-09-28T06:52:48+00:00",
+    "last_checked": "2026-09-28T06:59:58+00:00",
     "revisions": [
       {
         "sha256": "068edae78341c5a4edb73f237d05aa0bfa2f57d3963fd9dca054738b73781011",
@@ -392,8 +503,15 @@
         "pages": 4,
         "captured_at": "2026-09-28T06:20:29+00:00",
         "etag": "\"9044e573b44a65a7ee34a299712c0a91\"",
-        "last_modified": "Mon, 17 Mar 2025 21:03:16 GMT"
+        "last_modified": "Mon, 17 Mar 2025 21:03:16 GMT",
+        "extracted": "rules-1"
       }
+    ],
+    "models": [
+      "sma-scs-3540-up-xt-us",
+      "sma-scs-3600-up-xt-us",
+      "sma-scs-3800-up-xt-us",
+      "sma-scs-3950-up-xt-us"
     ]
   },
   {
@@ -404,7 +522,7 @@
     "url": "https://tmeic.com/wp-content/uploads/2025/04/SolarwareNinjaBrochure0523-web.pdf",
     "source_url": "https://tmeic.com/products/solar-ware-ninja-universal-pcs/",
     "first_seen": "2026-09-28T06:20:51+00:00",
-    "last_checked": "2026-09-28T06:53:13+00:00",
+    "last_checked": "2026-09-28T07:00:21+00:00",
     "revisions": [
       {
         "sha256": "0caecc648fb58857025397b9a68a1a1222c8b6feb63e76f6ec852596ea8eb0f1",
@@ -413,8 +531,14 @@
         "pages": 8,
         "captured_at": "2026-09-28T06:20:51+00:00",
         "etag": "\"684a5419-9ac7e\"",
-        "last_modified": "Thu, 12 Jun 2025 04:14:17 GMT"
+        "last_modified": "Thu, 12 Jun 2025 04:14:17 GMT",
+        "extracted": "rules-1"
       }
+    ],
+    "models": [
+      "tmeic-bsu-l0640gr",
+      "tmeic-bsu-l0800gr",
+      "tmeic-bsu-l0840gr"
     ]
   },
   {
@@ -425,7 +549,7 @@
     "url": "https://en.sinexcel.com/uploads/soft/20260303/PWX1-1575KTL-H-EX%20NA%20Datasheet%2020260115.pdf",
     "source_url": "https://en.sinexcel.com/energy-storage/details.html?id=39",
     "first_seen": "2026-09-28T06:53:08+00:00",
-    "last_checked": "2026-09-28T06:53:08+00:00",
+    "last_checked": "2026-09-28T07:00:17+00:00",
     "revisions": [
       {
         "sha256": "effa4205ce87489579c7497767f3dda064825b2dab249cab5b9a066365674472",
@@ -434,8 +558,12 @@
         "pages": 2,
         "captured_at": "2026-09-28T06:53:08+00:00",
         "etag": "\"69e20499-5b410\"",
-        "last_modified": "Fri, 17 Apr 2026 09:59:53 GMT"
+        "last_modified": "Fri, 17 Apr 2026 09:59:53 GMT",
+        "extracted": "rules-1"
       }
+    ],
+    "models": [
+      "sinexcel-pwx1-1575ktl-h-ex"
     ]
   }
 ]
