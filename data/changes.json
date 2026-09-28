@@ -1,5 +1,21 @@
 [
   {
+    "at": "2026-09-28T06:20:51+00:00",
+    "type": "new-datasheet",
+    "summary": "New datasheet found: SolarwareNinjaBrochure0523 web",
+    "document": "solarwareninjabrochure0523-web",
+    "product": "tmeic-energy-storage-pcs",
+    "revision": "0caecc648fb58857025397b9a68a1a1222c8b6feb63e76f6ec852596ea8eb0f1"
+  },
+  {
+    "at": "2026-09-28T06:20:29+00:00",
+    "type": "new-datasheet",
+    "summary": "New datasheet found: SCS UP XT US DS en 24",
+    "document": "scs-up-xt-us-ds-en-24",
+    "product": "sma-sunny-central-storage-up-xt-us",
+    "revision": "068edae78341c5a4edb73f237d05aa0bfa2f57d3963fd9dca054738b73781011"
+  },
+  {
     "at": "2026-09-28T06:14:17+00:00",
     "type": "new-datasheet",
     "summary": "New datasheet found: CPS 1500 Datasheet Aug25 RGB",

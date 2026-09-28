@@ -1,15 +1,15 @@
 {
-  "last_run_started": "2026-09-28T06:13:32+00:00",
-  "last_run_finished": "2026-09-28T06:14:32+00:00",
+  "last_run_started": "2026-09-28T06:19:55+00:00",
+  "last_run_finished": "2026-09-28T06:20:56+00:00",
   "interval_hours": 24.0,
   "summary": {
-    "sources_checked": 9,
-    "files_checked": 16,
-    "new_documents": 1,
-    "new_revisions": 12,
+    "sources_checked": 10,
+    "files_checked": 18,
+    "new_documents": 2,
+    "new_revisions": 0,
     "values_updated": 0,
-    "values_need_check": 1,
-    "errors": 4
+    "values_need_check": 0,
+    "errors": 3
   },
   "sources": [
     {
@@ -29,6 +29,15 @@
       "files": 0,
       "ok": false,
       "error": "No matching PDF links on the page. The site may load its downloads with JavaScript; add a direct PDF link as a source instead."
+    },
+    {
+      "supplier": "sma",
+      "product": "sma-sunny-central-storage-up-xt-us",
+      "name": "SMA · SCS UP-XT-US datasheet (direct link)",
+      "url": "https://files.sma.de/downloads/SCS-UP-XT-US-DS-en-24.pdf",
+      "files": 1,
+      "ok": true,
+      "error": null
     },
     {
       "supplier": "sungrow",
@@ -73,16 +82,16 @@
       "url": "https://en.sinexcel.com/energy-storage/details.html?id=39",
       "files": 0,
       "ok": false,
-      "error": "Unexpected error: URL can't contain control characters. '/uploads/soft/20260303/PWX1-1575KTL-H User Manual 20251202.pdf' (found at least ' ')"
+      "error": "Unexpected error: URL can't contain control characters. '/uploads/soft/20260303/PWX1-1575KTL-H-EX NA Datasheet 20260115.pdf' (found at least ' ')"
     },
     {
       "supplier": "tmeic",
       "product": "tmeic-energy-storage-pcs",
-      "name": "TMEIC · Energy storage product discovery",
-      "url": "https://www.tmeic.com/product-category/pv-inverters/",
-      "files": 0,
-      "ok": false,
-      "error": "No matching PDF links on the page. The site may load its downloads with JavaScript; add a direct PDF link as a source instead."
+      "name": "TMEIC · Solar Ware Ninja product page",
+      "url": "https://tmeic.com/products/solar-ware-ninja-universal-pcs/",
+      "files": 1,
+      "ok": true,
+      "error": null
     },
     {
       "supplier": "ingeteam",
