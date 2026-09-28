@@ -23,6 +23,18 @@ const KPI_FIELDS = [
   { label: 'Grid', keys: ['mv_voltage_kv', 'ac_voltage_v'], note: (s) => { const f = specOf(s.product, 'frequency_hz'); return f ? formatValue(f) : ''; } },
 ];
 
+// Catalog table columns. The four summary columns combine related fields; every other column is one
+// field from data/fields.json. Choices are kept in the URL (?cols=) and remembered in this browser.
+const COLS_KEY = 'pcs-atlas-columns';
+const DEFAULT_COLS = ['power', 'dc_max_v', 'grid', 'eff'];
+const MAX_COLS = 8;
+const PRESET_COLS = [
+  { id: 'power', group: 'Power', note: 'Apparent power, or active power if that is all that is published', label: 'Rated power', title: 'Rated power (kVA, or kW where only that is published)', keys: ['rated_kva', 'rated_kw'], numeric: true },
+  { id: 'grid', group: 'AC side', note: 'MV or AC voltage, with frequency', label: 'Grid', title: 'Grid connection (MV or AC voltage, and frequency)', keys: ['mv_voltage_kv', 'ac_voltage_v', 'frequency_hz'], numeric: true },
+  { id: 'eff', group: 'Efficiency', note: 'Converter only, or including the MV transformer', label: 'Peak efficiency', title: 'Peak efficiency (converter only, or including the MV transformer)', keys: ['efficiency_max_pct', 'efficiency_with_mvt_pct'], numeric: true },
+];
+let activeCols = [];
+
 const db = {};
 const idx = {};
 const compareSet = new Set(loadCompare());
@@ -178,6 +190,138 @@ async function loadData() {
   idx.containers = new Set([...idx.familyMembers.keys()].filter((id) => !specsOf(id).length));
   idx.leaves = [...idx.products.values()].filter((p) => !idx.containers.has(p.id));
   for (const id of [...compareSet]) if (!idx.products.has(id)) compareSet.delete(id);
+  const withData = new Set(specs.map((s) => s.field));
+  // Summary columns sit at the top of their field group, so the picker and the table share one order.
+  idx.cols = new Map();
+  const groupsSeen = new Set();
+  for (const f of db.fields) {
+    if (!groupsSeen.has(f.group)) {
+      groupsSeen.add(f.group);
+      for (const c of PRESET_COLS.filter((x) => x.group === f.group)) idx.cols.set(c.id, c);
+    }
+    if (!withData.has(f.key) && !DEFAULT_COLS.includes(f.key)) continue;
+    idx.cols.set(f.key, { id: f.key, label: f.short || f.label, title: f.label, keys: [f.key], numeric: f.kind === 'number', group: f.group, field: f });
+  }
+  for (const c of PRESET_COLS) if (!idx.cols.has(c.id)) idx.cols.set(c.id, c);
+  activeCols = cleanCols(storedCols());
+}
+
+// ------------------------------------------------------------------ table columns
+
+function cleanCols(list) {
+  const order = [...idx.cols.keys()];
+  const ids = [...new Set((list || []).filter((id) => idx.cols.has(id)))].slice(0, MAX_COLS)
+    .sort((a, b) => order.indexOf(a) - order.indexOf(b));
+  return (ids.length ? ids : DEFAULT_COLS.filter((id) => idx.cols.has(id))).map((id) => idx.cols.get(id));
+}
+function storedCols() {
+  try { const v = JSON.parse(localStorage.getItem(COLS_KEY)); return Array.isArray(v) ? v : null; } catch { return null; }
+}
+function saveCols() {
+  const ids = activeCols.map((c) => c.id);
+  try {
+    if (ids.join() === DEFAULT_COLS.join()) localStorage.removeItem(COLS_KEY);
+    else localStorage.setItem(COLS_KEY, JSON.stringify(ids));
+  } catch { /* storage blocked: the choice still lives in the URL */ }
+}
+const colsAreDefault = () => activeCols.map((c) => c.id).join() === DEFAULT_COLS.join();
+const colCount = () => activeCols.length + 4;  // + compare, model, source, open
+
+// Value (or range across family members) for one column.
+function rangeOf(ids, keys) {
+  const specs = ids.map((id) => pick(id, keys)).filter(Boolean);
+  if (!specs.length) return null;
+  const nums = specs.map((s) => s.numeric).filter((n) => typeof n === 'number');
+  if (ids.length > 1 && nums.length) {
+    const lo = Math.min(...nums); const hi = Math.max(...nums);
+    const unit = idx.fields.get(specs[0].field)?.unit || '';
+    const f = (n) => n.toLocaleString('en-US', { maximumFractionDigits: 2 });
+    return { text: `${lo === hi ? f(lo) : `${f(lo)}-${f(hi)}`}${unit ? ` ${unit}` : ''}`, spec: specs[0] };
+  }
+  if (ids.length > 1) {
+    const texts = [...new Set(specs.map((s) => formatValue(s)))];
+    return texts.length === 1 ? { text: texts[0], spec: specs[0] } : { text: 'Varies', title: texts.join(' / '), spec: specs[0] };
+  }
+  return { text: formatValue(specs[0]), spec: specs[0] };
+}
+
+function cellHtml(col, ids) {
+  const na = '<span class="na">n/a</span>';
+  if (col.id === 'grid') {
+    const mv = rangeOf(ids, ['mv_voltage_kv']) || rangeOf(ids, ['ac_voltage_v']);
+    const hz = rangeOf(ids, ['frequency_hz']);
+    return mv || hz ? esc([mv?.text, hz?.text].filter(Boolean).join(', ')) : na;
+  }
+  const r = rangeOf(ids, col.keys);
+  if (!r) return na;
+  let q = '';
+  if (col.id === 'power') { const c = ids.length === 1 ? condOf(r.spec) : ''; q = `<span class="q">${c ? `@${esc(c.replace(' ', ''))}` : ''}</span>`; }
+  if (col.id === 'eff') q = `<span class="q">${r.spec.field === 'efficiency_max_pct' ? 'conv.' : 'w/ MVT'}</span>`;
+  const title = r.title || (!col.numeric && r.text.length > 28 ? r.text : '');
+  return `<span class="cv"${title ? ` title="${esc(title)}"` : ''}>${esc(r.text)}</span>${q}`;
+}
+
+function cellsHtml(ids) {
+  return activeCols.map((c, i) => `<td class="c${i === 0 ? ' c0' : ''}${c.numeric ? ' r num' : ' t'}" data-label="${esc(c.label)}">${cellHtml(c, ids)}</td>`).join('');
+}
+
+function headHtml(state) {
+  return `<tr><th class="cb"><span class="sr-only">Compare</span></th><th class="mc">Model</th>${activeCols.map((c) => {
+    if (!state) return `<th class="${c.numeric ? 'r' : ''}" title="${esc(c.title)}">${esc(c.label)}</th>`;
+    const on = state.sort === c.id;
+    const aria = on ? ` aria-sort="${state.dir === 'asc' ? 'ascending' : 'descending'}"` : '';
+    return `<th class="${c.numeric ? 'r' : ''}"${aria}><button type="button" class="th-sort${on ? ` on ${state.dir}` : ''}" data-sort-col="${esc(c.id)}" title="${esc(c.title)}. Select to sort">${esc(c.label)}${icon(on ? 'caret-down' : 'arrows-down-up')}</button></th>`;
+  }).join('')}<th>Source</th><th><span class="sr-only">Open</span></th></tr>`;
+}
+
+function columnPicker() {
+  const groups = groupBy([...idx.cols.values()], (c) => c.group);
+  return `<details class="pop" id="f-cols">
+    <summary class="select" aria-label="Choose table columns"><span id="cols-summary">Columns</span></summary>
+    <div class="pop-body cols-body">
+      <p class="pop-note top">Pick up to ${MAX_COLS} columns. Select a column heading to sort by it.</p>
+      ${[...groups].map(([g, list]) => `<fieldset><legend>${esc(g)}</legend>
+        ${list.map((c) => `<label class="opt${c.note ? '' : ' one'}"><input type="checkbox" class="check" value="${esc(c.id)}"><span>${esc(c.field ? c.title : c.label)}</span>${c.note ? `<small>${esc(c.note)}</small>` : ''}</label>`).join('')}
+      </fieldset>`).join('')}
+      <button type="button" class="btn ghost sm" data-cols-reset>Reset to default</button>
+    </div>
+  </details>`;
+}
+
+function bindColumnPicker(onChange) {
+  const pop = document.getElementById('f-cols');
+  if (!pop) return;
+  const sync = () => {
+    const on = new Set(activeCols.map((c) => c.id));
+    pop.querySelectorAll('input[type="checkbox"]').forEach((box) => {
+      box.checked = on.has(box.value);
+      box.disabled = !box.checked && on.size >= MAX_COLS;
+    });
+    document.getElementById('cols-summary').textContent = `Columns (${on.size})`;
+    pop.classList.toggle('on', !colsAreDefault());
+  };
+  pop.addEventListener('change', (e) => {
+    const box = e.target.closest('input[type="checkbox"]');
+    if (!box) return;
+    const ids = activeCols.map((c) => c.id);
+    const next = box.checked ? [...ids, box.value] : ids.filter((id) => id !== box.value);
+    if (!next.length) { box.checked = true; return; }  // keep at least one column
+    // Keep the picker's order (summary first, then datasheet order) so tables look the same for everyone.
+    const order = [...idx.cols.keys()];
+    activeCols = cleanCols(next.sort((a, b) => order.indexOf(a) - order.indexOf(b)));
+    saveCols(); sync(); onChange();
+  });
+  pop.addEventListener('click', (e) => {
+    if (!e.target.closest('[data-cols-reset]')) return;
+    activeCols = cleanCols(DEFAULT_COLS);
+    saveCols(); sync(); onChange();
+  });
+  const { signal } = viewAbort;
+  document.addEventListener('click', (e) => { if (pop.open && !pop.contains(e.target)) pop.open = false; }, { signal });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && pop.open) { pop.open = false; pop.querySelector('summary').focus(); }
+  }, { signal });
+  sync();
 }
 
 function groupBy(items, key) {
@@ -360,17 +504,13 @@ function viewHome(params) {
             ${db.suppliers.map((s) => `<option value="${esc(s.id)}">${esc(s.name)}</option>`).join('')}
           </select>
           ${countryPicker()}
-          <select class="select" id="f-sort" aria-label="Sort by">
-            <option value="featured">Sort: most reviewed</option>
-            <option value="name">Sort: name</option>
-            <option value="power">Sort: rated power</option>
-            <option value="efficiency">Sort: efficiency</option>
-          </select>
+          ${columnPicker()}
+          <select class="select" id="f-sort" aria-label="Sort by"></select>
           <span class="count" id="result-count" aria-live="polite"></span>
         </div>
         <div class="chips" id="country-chips" hidden></div>
         <div class="tbl"><table>
-          <thead><tr><th class="cb"><span class="sr-only">Compare</span></th><th class="mc">Model</th><th class="r">Rated power</th><th class="r">DC max</th><th class="r">Peak efficiency</th><th class="r">Grid</th><th>Source</th><th><span class="sr-only">Open</span></th></tr></thead>
+          <thead id="model-head"></thead>
           <tbody id="model-rows"></tbody>
         </table></div>
       </div></section>
@@ -386,13 +526,15 @@ function viewHome(params) {
         q: params.get('q') || '',
         show: params.get('show') || 'all',
         supplier: params.get('supplier') || '',
-        sort: params.get('sort') || 'featured',
+        sort: ({ efficiency: 'eff' })[params.get('sort')] || params.get('sort') || 'featured',
+        dir: params.get('dir') === 'asc' ? 'asc' : 'desc',
         cmode: params.get('only') ? 'only' : 'hide',
         countries: new Set((params.get('only') || params.get('hide') || '').split(',').map((c) => c.trim().toUpperCase()).filter((c) => idx.countries.has(c))),
         open: new Set(),
       };
       tools.querySelector('#f-supplier').value = state.supplier;
-      tools.querySelector('#f-sort').value = state.sort;
+      if (params.get('cols')) activeCols = cleanCols(params.get('cols').split(','));
+      if (!['featured', 'name'].includes(state.sort) && !idx.cols.has(state.sort)) state.sort = 'featured';
       const update = () => {
         const next = new URLSearchParams();
         for (const k of ['q', 'show', 'supplier', 'sort']) {
@@ -400,13 +542,28 @@ function viewHome(params) {
           if (v && !(k === 'show' && v === 'all') && !(k === 'sort' && v === 'featured')) next.set(k, v);
         }
         if (state.countries.size) next.set(state.cmode, [...state.countries].sort().join(','));
+        if (idx.cols.has(state.sort) && state.dir === 'asc') next.set('dir', 'asc');
+        if (!colsAreDefault()) next.set('cols', activeCols.map((c) => c.id).join(','));
         history.replaceState(null, '', next.toString() ? `#/?${next}` : '#/');
         currentHash = location.hash;
         renderRows(state);
       };
       tools.querySelectorAll('[data-show]').forEach((b) => b.addEventListener('click', () => { state.show = b.dataset.show; update(); }));
       tools.querySelector('#f-supplier').addEventListener('change', (e) => { state.supplier = e.target.value; update(); });
-      tools.querySelector('#f-sort').addEventListener('change', (e) => { state.sort = e.target.value; update(); });
+      tools.querySelector('#f-sort').addEventListener('change', (e) => { state.sort = e.target.value; state.dir = defaultDir(state.sort); update(); });
+      bindColumnPicker(() => {
+        if (idx.cols.has(state.sort) && !activeCols.some((c) => c.id === state.sort)) state.sort = 'featured';
+        update();
+      });
+      document.getElementById('model-head').addEventListener('click', (e) => {
+        const b = e.target.closest('[data-sort-col]');
+        if (!b) return;
+        const id = b.dataset.sortCol;
+        if (state.sort === id) state.dir = state.dir === 'asc' ? 'desc' : 'asc';
+        else { state.sort = id; state.dir = defaultDir(id); }
+        update();
+        document.querySelector(`[data-sort-col="${CSS.escape(id)}"]`)?.focus();
+      });
       bindCountryPicker(state, update);
       document.getElementById('model-rows').addEventListener('click', (e) => {
         const fam = e.target.closest('tr.family');
@@ -509,17 +666,47 @@ function pickExample() {
     || withRow.find((s) => s.field === 'rated_kva') || withRow[0];
 }
 
+// Numbers sort largest first, text A to Z; models without a value always go last.
+const defaultDir = (id) => (idx.cols.get(id)?.numeric ? 'desc' : 'asc');
+function textOf(p, keys) {
+  const members = idx.containers.has(p.id) && idx.familyMembers.get(p.id);
+  const spec = (members || [p]).map((m) => pick(m.id, keys)).find(Boolean);
+  return spec ? formatValue(spec).toLowerCase() : null;
+}
+function columnSorter(col, dir) {
+  const sign = dir === 'asc' ? 1 : -1;
+  const keys = col.id === 'grid' ? ['mv_voltage_kv', 'ac_voltage_v'] : col.keys;
+  if (col.numeric) {
+    return (a, b) => {
+      const x = numOf(a, keys); const y = numOf(b, keys);
+      if (x === -Infinity || y === -Infinity) return (x === -Infinity) - (y === -Infinity) || byModel(a, b);
+      return sign * (x - y) || byModel(a, b);
+    };
+  }
+  return (a, b) => {
+    const x = textOf(a, keys); const y = textOf(b, keys);
+    if (x === null || y === null) return (x === null) - (y === null) || byModel(a, b);
+    return sign * x.localeCompare(y, undefined, { numeric: true }) || byModel(a, b);
+  };
+}
 const SORTS = {
   featured: (a, b) => reviewedCount(b.id) - reviewedCount(a.id) || Number(!!a.auto) - Number(!!b.auto)
     || specsOf(b.id).length - specsOf(a.id).length || byModel(a, b),
   name: byModel,
-  power: (a, b) => numOf(b, ['rated_kva', 'rated_kw']) - numOf(a, ['rated_kva', 'rated_kw']),
-  efficiency: (a, b) => numOf(b, ['efficiency_max_pct', 'efficiency_with_mvt_pct']) - numOf(a, ['efficiency_max_pct', 'efficiency_with_mvt_pct']),
 };
 function numOf(p, keys) {
   const members = idx.containers.has(p.id) && idx.familyMembers.get(p.id);
   if (members) return Math.max(-Infinity, ...members.map((m) => numOf(m, keys)));
   return pick(p.id, keys)?.numeric ?? -Infinity;
+}
+
+function renderSortOptions(state) {
+  const sel = document.getElementById('f-sort');
+  if (!sel) return;
+  const opts = [['featured', 'Sort: most reviewed'], ['name', 'Sort: name'],
+    ...activeCols.map((c) => [c.id, `Sort: ${c.label}`])];
+  sel.innerHTML = opts.map(([v, t]) => `<option value="${esc(v)}">${esc(t)}</option>`).join('');
+  sel.value = state.sort;
 }
 
 function renderRows(state) {
@@ -532,7 +719,12 @@ function renderRows(state) {
       && (state.show === 'all' || kindOf(p) === state.show);
   };
   const narrowed = Boolean(q || state.show !== 'all');
-  const sorter = SORTS[state.sort] || SORTS.featured;
+  const col = idx.cols.get(state.sort);
+  const bycol = Boolean(col && activeCols.includes(col));
+  const sorter = bycol ? columnSorter(col, state.dir) : SORTS[state.sort] || SORTS.featured;
+  renderSortOptions(state);
+  document.getElementById('model-head').innerHTML = headHtml(state);
+  document.getElementById('model-head').parentElement.style.setProperty('--ncols', activeCols.length);
 
   // Top-level entries: products that are not members of a family; families carry their matching members.
   const entries = [];
@@ -552,17 +744,21 @@ function renderRows(state) {
   const collecting = (e) => kindOf(e.p) === 'none';
   const groups = new Map();
   for (const e of entries) {
-    const key = collecting(e) && state.show !== 'none' ? '_collecting' : e.p.supplier.id;
+    // Sorting by a column ranks every model together, so the maker groups are set aside.
+    const key = bycol ? '_all' : collecting(e) && state.show !== 'none' ? '_collecting' : e.p.supplier.id;
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(e);
   }
   const rank = (list) => list.reduce((n, e) => n + (e.members || [e.p]).reduce((m, p) => m + reviewedCount(p.id) * 1000 + specsOf(p.id).length, 0), 0);
   const ordered = [...groups].sort(([ka, a], [kb, b]) => (ka === '_collecting') - (kb === '_collecting') || rank(b) - rank(a));
+  const span = colCount();
 
   const rows = ordered.map(([key, list]) => {
     list.sort((a, b) => sorter(a.p, b.p));
     let head;
-    if (key === '_collecting') {
+    if (key === '_all') {
+      head = '';
+    } else if (key === '_collecting') {
       const names = [...new Set(list.map((e) => e.p.supplier.name))];
       head = `<div class="grp-name"><span class="avatar">+${names.length}</span>${esc(names.join(', '))} <span>datasheets being collected</span></div>`;
     } else {
@@ -571,45 +767,18 @@ function renderRows(state) {
       const where = countryLine(s);
       head = `<div class="grp-name"><span class="avatar">${esc(initials(s.name))}</span>${esc(s.name)}${where ? `<span class="ctry">${esc(where)}</span>` : ''} <span>${esc(plural(n, 'model'))}</span></div>`;
     }
-    return `<tr class="grp"><td colspan="8">${head}</td></tr>${list.map((e) => {
-      if (!e.members) return itemRow(e.p);
+    const maker = key === '_all';
+    return `${head ? `<tr class="grp"><td colspan="${span}">${head}</td></tr>` : ''}${list.map((e) => {
+      if (!e.members) return itemRow(e.p, { maker });
       const open = narrowed || state.open.has(e.p.id);
-      return familyRow(e.p, e.all, open) + (open ? e.members.map((m) => itemRow(m, { member: true })).join('') : '');
+      return familyRow(e.p, e.all, open, { maker }) + (open ? e.members.map((m) => itemRow(m, { member: true, maker })).join('') : '');
     }).join('')}`;
   }).join('');
 
   document.querySelectorAll('[data-show]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.show === state.show)));
   document.getElementById('result-count').textContent = `Showing ${shown} of ${idx.leaves.length}`;
   renderCountryChips(state);
-  document.getElementById('model-rows').innerHTML = rows || `<tr><td colspan="8"><div class="empty"><h3>No models match</h3><p>Try a different search, filter, manufacturer or country.</p></div></td></tr>`;
-}
-
-function cells(ids) {
-  // Values for a product (one id) or a family range (several ids).
-  const range = (keys) => {
-    const specs = ids.map((id) => pick(id, keys)).filter(Boolean);
-    if (!specs.length) return null;
-    const nums = specs.map((s) => s.numeric).filter((n) => typeof n === 'number');
-    if (ids.length > 1 && nums.length) {
-      const lo = Math.min(...nums); const hi = Math.max(...nums);
-      const unit = idx.fields.get(specs[0].field)?.unit || '';
-      const f = (n) => n.toLocaleString('en-US', { maximumFractionDigits: 2 });
-      return { text: `${lo === hi ? f(lo) : `${f(lo)}-${f(hi)}`}${unit ? ` ${unit}` : ''}`, spec: specs[0] };
-    }
-    return { text: formatValue(specs[0]), spec: specs[0] };
-  };
-  const na = '<span class="na">n/a</span>';
-  const power = range(['rated_kva', 'rated_kw']);
-  const eff = range(['efficiency_max_pct', 'efficiency_with_mvt_pct']);
-  const mv = range(['mv_voltage_kv']) || range(['ac_voltage_v']);
-  const hz = range(['frequency_hz']);
-  const cond = power && ids.length === 1 ? condOf(power.spec) : '';
-  return {
-    power: power ? `${esc(power.text)}${cond ? `<span class="q">@${esc(cond.replace(' ', ''))}</span>` : ''}` : na,
-    dc: (() => { const d = range(['dc_max_v']); return d ? esc(d.text) : na; })(),
-    eff: eff ? `${esc(eff.text)}<span class="q">${eff.spec.field === 'efficiency_max_pct' ? 'conv.' : 'w/ MVT'}</span>` : na,
-    grid: mv || hz ? esc([mv?.text, hz?.text].filter(Boolean).join(', ')) : na,
-  };
+  document.getElementById('model-rows').innerHTML = rows || `<tr><td colspan="${span}"><div class="empty"><h3>No models match</h3><p>Try a different search, filter, manufacturer or country.</p></div></td></tr>`;
 }
 
 function productPill(p) {
@@ -629,24 +798,22 @@ function subline(p) {
   return [p.kind, p.market].filter(Boolean).join(', ');
 }
 
-function itemRow(p, { member = false } = {}) {
-  const c = cells([p.id]);
+function itemRow(p, { member = false, maker = false } = {}) {
   const canCompare = specsOf(p.id).length > 0;
   return `<tr class="item${member ? ' member' : ''}" data-href="${modelHref(p.id)}">
     <td class="cb">${canCompare ? `<input type="checkbox" class="check" data-compare="${esc(p.id)}" aria-label="Compare ${esc(p.model)}" ${compareSet.has(p.id) ? 'checked' : ''}>` : ''}</td>
-    <td class="model"><a href="${modelHref(p.id)}"><b>${esc(p.model)}</b></a><small>${esc(subline(p))}</small></td>
-    <td class="p r num">${c.power}</td><td class="d r num">${c.dc}</td><td class="e r num">${c.eff}</td><td class="gv r num">${c.grid}</td>
+    <td class="model"><a href="${modelHref(p.id)}"><b>${esc(p.model)}</b></a><small>${esc(maker ? `${p.supplier.name}, ${subline(p)}` : subline(p))}</small></td>
+    ${cellsHtml([p.id])}
     <td class="st">${productPill(p)}</td>
     <td class="chev">${icon('arrow-right')}</td>
   </tr>`;
 }
 
-function familyRow(p, members, open) {
-  const c = cells(members.map((m) => m.id));
+function familyRow(p, members, open, { maker = false } = {}) {
   return `<tr class="item family" data-family="${esc(p.id)}" aria-expanded="${open}">
     <td class="cb"></td>
-    <td class="model"><a href="${modelHref(p.id)}"><b>${esc(p.model)}</b></a><span class="count-tag">${esc(plural(members.length, 'model'))}</span><small>${esc(p.summary || [p.kind, p.market].filter(Boolean).join(', '))}</small></td>
-    <td class="p r num">${c.power}</td><td class="d r num">${c.dc}</td><td class="e r num">${c.eff}</td><td class="gv r num">${c.grid}</td>
+    <td class="model"><a href="${modelHref(p.id)}"><b>${esc(p.model)}</b></a><span class="count-tag">${esc(plural(members.length, 'model'))}</span><small>${esc(maker ? `${p.supplier.name}, ${[p.kind, p.market].filter(Boolean).join(', ')}` : p.summary || [p.kind, p.market].filter(Boolean).join(', '))}</small></td>
+    ${cellsHtml(members.map((m) => m.id))}
     <td class="st">${productPill(p)}</td>
     <td class="chev"><button type="button" class="btn ghost sm fam-toggle" aria-label="${open ? 'Hide' : 'Show'} ${esc(plural(members.length, 'model'))} in ${esc(p.model)}">${open ? 'Hide' : 'Show'} ${icon('caret-down')}</button></td>
   </tr>`;
@@ -786,7 +953,7 @@ function viewModel(id, params) {
   const memberTable = (list, title, note) => `
     <h2 class="sub-head">${title}</h2><p class="sub-note">${note}</p>
     <div class="tbl"><table>
-      <thead><tr><th class="cb"><span class="sr-only">Compare</span></th><th class="mc">Model</th><th class="r">Rated power</th><th class="r">DC max</th><th class="r">Peak efficiency</th><th class="r">Grid</th><th>Source</th><th><span class="sr-only">Open</span></th></tr></thead>
+      <thead>${headHtml(null)}</thead>
       <tbody>${list.map((m) => itemRow(m)).join('')}</tbody></table></div>`;
 
   return {
@@ -825,6 +992,8 @@ function viewModel(id, params) {
         : '<div class="empty"><p>No datasheet collected yet.</p></div>'}
     </div>`,
     after() {
+      // Set from script: the page's content-security policy blocks inline style attributes.
+      document.querySelectorAll('.tbl table').forEach((t) => t.style.setProperty('--ncols', activeCols.length));
       document.querySelectorAll('.actions button[data-compare]').forEach(setCompareButton);
       if (!selected) return false;
       const list = document.getElementById('spec-list');

@@ -27,7 +27,7 @@ from pathlib import Path
 
 from .verify import normalize
 
-EXTRACTOR_VERSION = "rules-1"
+EXTRACTOR_VERSION = "rules-2"  # rules-2: number of DC inputs
 
 # ------------------------------------------------------------------ layout text
 
@@ -194,6 +194,7 @@ RULES = [
     Rule("dc_voltage_range", r"^dc\s+voltage\s+range(?!\s+full)", range_value("V|VDC")),
     Rule("max_dc_current_a", r"max(imum)?\.?\s+dc\s+(continuous\s+)?current\s*\(a\)", plain_number, value_from_label=True),
     Rule("max_dc_current_a", r"max(imum)?\.?\s+dc\s+(continuous\s+)?current(?!\s*\(a\))", number_with_unit("A|ADC")),
+    Rule("dc_inputs", r"^(no\.?|number)\s+of\s+dc\s+inputs?\b|^dc\s+inputs?$", plain_number, exclude=r"current|voltage"),
     Rule("mv_voltage_kv", r"operating\s+grid\s+voltage|(nominal\s+)?lv\s*/\s*mv\s+voltage", mv_voltage),
     Rule("ac_voltage_v", r"(nominal\s+)?lv\s*/\s*mv\s+voltage", lv_voltage),
     Rule("frequency_hz", r"(nominal\s+|operating\s+)?grid\s+f\s?requency|^frequency", number_with_unit("Hz")),

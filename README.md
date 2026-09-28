@@ -97,6 +97,12 @@ based there, so hiding China also hides a Chinese-owned maker with a head office
 independent companies. The site shows "Not reviewed yet" until `reviewed_by` and `reviewed_at` are filled in.
 Filtered lists can be shared: `#/?hide=CN` or `#/?only=US,ES`.
 
+**Add a table column** — every field in `data/fields.json` that has at least one value appears in the
+"Columns" picker on the models page. `short` is the column heading; `label` is the full name shown in the picker.
+A new field needs an extractor rule in `collector/collector/extract.py` (see `dc_inputs`) and an `EXTRACTOR_VERSION`
+bump so existing datasheets are read again. Column choices are remembered per browser and kept in the URL
+(`#/?cols=power,dc_max_v,dc_inputs`), so a table layout can be shared.
+
 **Publish a value** — add an entry to `data/specs.json` (copy an existing one). Required: `product`, `field`,
 `value`, `evidence` (the datasheet line, exactly as printed), `document`, `revision` (the sha256 from `documents.json`),
 `page`, `status: "reviewed"`, `reviewed_by`, `reviewed_at`. If the evidence combines several table cells, also add

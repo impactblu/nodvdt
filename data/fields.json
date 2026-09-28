@@ -4,47 +4,62 @@
     "label": "Rated active power",
     "unit": "kW",
     "kind": "number",
-    "group": "Power"
+    "group": "Power",
+    "short": "Active power"
   },
   {
     "key": "rated_kva",
     "label": "Rated apparent power",
     "unit": "kVA",
     "kind": "number",
-    "group": "Power"
+    "group": "Power",
+    "short": "Apparent power"
   },
   {
     "key": "dc_min_v",
     "label": "DC operating minimum",
     "unit": "V",
     "kind": "number",
-    "group": "DC side"
+    "group": "DC side",
+    "short": "DC min"
   },
   {
     "key": "dc_max_v",
     "label": "DC operating maximum",
     "unit": "V",
     "kind": "number",
-    "group": "DC side"
+    "group": "DC side",
+    "short": "DC max"
   },
   {
     "key": "full_power_dc_range",
     "label": "DC range at full power",
     "unit": "V",
     "kind": "text",
-    "group": "DC side"
+    "group": "DC side",
+    "short": "DC range, full power"
   },
   {
     "key": "dc_voltage_range",
     "label": "DC voltage range",
     "unit": "V",
     "kind": "text",
-    "group": "DC side"
+    "group": "DC side",
+    "short": "DC range"
   },
   {
     "key": "max_dc_current_a",
     "label": "Maximum DC current",
     "unit": "A",
+    "kind": "number",
+    "group": "DC side",
+    "short": "DC current"
+  },
+  {
+    "key": "dc_inputs",
+    "label": "Number of DC inputs",
+    "short": "DC inputs",
+    "unit": "",
     "kind": "number",
     "group": "DC side"
   },
@@ -53,56 +68,64 @@
     "label": "PCS AC voltage",
     "unit": "V",
     "kind": "number",
-    "group": "AC side"
+    "group": "AC side",
+    "short": "AC voltage"
   },
   {
     "key": "mv_voltage_kv",
     "label": "MV output voltage",
     "unit": "kV",
     "kind": "text",
-    "group": "AC side"
+    "group": "AC side",
+    "short": "MV voltage"
   },
   {
     "key": "frequency_hz",
     "label": "AC frequency",
     "unit": "Hz",
     "kind": "text",
-    "group": "AC side"
+    "group": "AC side",
+    "short": "Frequency"
   },
   {
     "key": "efficiency_max_pct",
     "label": "Maximum PCS efficiency",
     "unit": "%",
     "kind": "number",
-    "group": "Efficiency"
+    "group": "Efficiency",
+    "short": "Efficiency, conv."
   },
   {
     "key": "efficiency_weighted_pct",
     "label": "Weighted PCS efficiency",
     "unit": "%",
     "kind": "number",
-    "group": "Efficiency"
+    "group": "Efficiency",
+    "short": "Weighted efficiency"
   },
   {
     "key": "efficiency_with_mvt_pct",
     "label": "Maximum efficiency including MV transformer",
     "unit": "%",
     "kind": "number",
-    "group": "Efficiency"
+    "group": "Efficiency",
+    "short": "Efficiency w/ MVT"
   },
   {
     "key": "power_factor",
     "label": "Power factor range",
     "unit": "",
     "kind": "text",
-    "group": "AC side"
+    "group": "AC side",
+    "short": "Power factor"
   },
   {
     "key": "reactive_capability",
     "label": "Reactive power capability",
     "unit": "",
     "kind": "text",
-    "group": "AC side"
+    "group": "AC side",
+    "short": "Reactive power"
   },
   {
     "key": "gfm",
@@ -137,21 +160,24 @@
     "label": "Operating temperature minimum",
     "unit": "°C",
     "kind": "number",
-    "group": "Environment & build"
+    "group": "Environment & build",
+    "short": "Min temp"
   },
   {
     "key": "temp_max_c",
     "label": "Operating temperature maximum",
     "unit": "°C",
     "kind": "number",
-    "group": "Environment & build"
+    "group": "Environment & build",
+    "short": "Max temp"
   },
   {
     "key": "derating",
     "label": "Derating conditions",
     "unit": "",
     "kind": "text",
-    "group": "Environment & build"
+    "group": "Environment & build",
+    "short": "Derating"
   },
   {
     "key": "cooling",
@@ -172,7 +198,8 @@
     "label": "Dimensions (W × H × D)",
     "unit": "",
     "kind": "text",
-    "group": "Environment & build"
+    "group": "Environment & build",
+    "short": "Dimensions"
   },
   {
     "key": "weight_kg",
@@ -186,7 +213,8 @@
     "label": "Acoustic rating and distance",
     "unit": "",
     "kind": "text",
-    "group": "Environment & build"
+    "group": "Environment & build",
+    "short": "Noise"
   },
   {
     "key": "communications",
@@ -200,14 +228,16 @@
     "label": "Stated standards / listings",
     "unit": "",
     "kind": "text",
-    "group": "Other"
+    "group": "Other",
+    "short": "Standards"
   },
   {
     "key": "transformer",
     "label": "Transformer / integration scope",
     "unit": "",
     "kind": "text",
-    "group": "Other"
+    "group": "Other",
+    "short": "Transformer"
   },
   {
     "key": "warranty",
@@ -221,6 +251,7 @@
     "label": "Stated manufacturing origin",
     "unit": "",
     "kind": "text",
-    "group": "Other"
+    "group": "Other",
+    "short": "Made in"
   }
 ]

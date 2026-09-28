@@ -181,3 +181,12 @@ class RecheckExtractedTests(unittest.TestCase):
         self.assertEqual((out["status"], out["value"]), ("updated", "34 ±10%"))
         gone = extract_from_pages([MODEL_TABLE.replace("Operating Grid Voltage (kV)", "Something else")], PE)
         self.assertEqual(extraction.recheck_extracted(self.spec(), gone)["status"], "needs-check")
+
+
+class DcInputsTests(unittest.TestCase):
+    def test_number_of_dc_inputs(self):
+        page = LABEL_VALUE.replace(
+            "      Max. DC current",
+            "      No. of DC inputs                                                                4\n      Max. DC current")
+        cands = extract_from_pages([page], r"\bSC\d{4}UD[-A-Z0-9]*\b")
+        self.assertEqual(next(c for c in cands if c.field == "dc_inputs").value, "4")
