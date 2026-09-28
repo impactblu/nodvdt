@@ -188,7 +188,7 @@ function viewHome(params) {
             <p class="hero-lead">Compare power conversion systems (PCS) for utility-scale battery storage.
               Every number links to the exact page of the manufacturer's datasheet — and when a manufacturer publishes a new version, the catalog notices.</p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#models">Browse models ${ICON.arrow}</a>
+              <a class="btn btn-primary" href="#/" data-scroll-to="models">Browse models ${ICON.arrow}</a>
               <a class="btn" href="#/about">How it stays current</a>
             </div>
           </div>
@@ -519,7 +519,9 @@ function docBox(docs) {
   if (!docs.length) return `<div class="card doc-box"><h2>Datasheets</h2><p class="muted small">Not collected yet.</p></div>`;
   return `<div class="card doc-box">
     <h2>${docs.length === 1 ? 'Datasheet' : `Datasheets (${docs.length})`}</h2>
-    ${docs.map((d) => docItem(d)).join('')}
+    ${docs.slice(0, 3).map((d) => docItem(d)).join('')}
+    ${docs.length > 3 ? `<details class="versions doc-more"><summary>Show ${plural(docs.length - 3, 'more datasheet')}</summary>
+      ${docs.slice(3).map((d) => docItem(d)).join('')}</details>` : ''}
   </div>`;
 }
 
@@ -864,12 +866,28 @@ function parseRoute() {
   return { name, arg: parts[1] || '', params: new URLSearchParams(query) };
 }
 
+const scrollPositions = new Map();
+let navigatedByLink = false;
+let currentHash = null;
+const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function scrollToSection(id) {
+  document.getElementById(id)?.scrollIntoView({ behavior: reduceMotion() ? 'auto' : 'smooth', block: 'start' });
+}
+
 function render({ keepFocus = false } = {}) {
-  // In-page anchors like #models aren't routes.
+  // Old-style in-page anchors (#models): show the catalog and scroll to the section.
   if (location.hash && !location.hash.startsWith('#/')) {
-    document.getElementById(location.hash.slice(1))?.scrollIntoView({ behavior: 'smooth' });
+    const target = location.hash.slice(1);
+    history.replaceState(null, '', '#/');
+    render();
+    scrollToSection(target);
     return;
   }
+  if (currentHash !== null) scrollPositions.set(currentHash, window.scrollY);
+  const restoreTo = !navigatedByLink && !keepFocus ? scrollPositions.get(location.hash || '#/') : undefined;
+  navigatedByLink = false;
+  currentHash = location.hash || '#/';
   const route = parseRoute();
   headerSearchHandler = null;
   const views = {
@@ -902,7 +920,11 @@ function render({ keepFocus = false } = {}) {
     const el = document.getElementById(activeId);
     if (el) { el.focus(); if (el.setSelectionRange) el.setSelectionRange(el.value.length, el.value.length); return; }
   }
-  if (!keepFocus) { main.focus({ preventScroll: true }); window.scrollTo(0, 0); }
+  if (!keepFocus) {
+    main.focus({ preventScroll: true });
+    // Back/forward returns to where you were; following a link starts at the top.
+    window.scrollTo(0, restoreTo ?? 0);
+  }
 }
 
 function bindShell() {
@@ -918,10 +940,24 @@ function bindShell() {
   input.addEventListener('input', () => { if (headerSearchHandler) headerSearchHandler(input.value); });
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (headerSearchHandler) { document.getElementById('models')?.scrollIntoView({ behavior: 'smooth' }); return; }
+    if (headerSearchHandler) { scrollToSection('models'); return; }
     location.hash = input.value ? `#/?q=${encodeURIComponent(input.value)}` : '#/';
   });
   window.addEventListener('hashchange', () => render());
+  history.scrollRestoration = 'manual';
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    if (link.dataset.scrollTo) {
+      e.preventDefault();
+      scrollToSection(link.dataset.scrollTo);
+      return;
+    }
+    navigatedByLink = true;
+  });
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && input.value) { input.value = ''; input.dispatchEvent(new Event('input')); }
+  });
 }
 
 async function start() {
