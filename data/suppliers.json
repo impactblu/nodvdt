@@ -1,0 +1,197 @@
+[
+  {
+    "id": "power-electronics",
+    "name": "Power Electronics",
+    "website": "https://power-electronics.com/en/storage",
+    "notes": "Initial official source directory checked September 7, 2026. Product families and regional variants require review.",
+    "products": [
+      {
+        "id": "power-electronics-pcsm-multi-pcsm",
+        "model": "PCSM / Multi PCSM",
+        "market": "UL and IEC variants",
+        "notes": "Family record. Create separate models for voltage, generation, and single/multi configuration before approving variant-specific ratings.",
+        "sources": [
+          {
+            "name": "Power Electronics · PCSM datasheets",
+            "url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
+            "allowed_hosts": [
+              "power-electronics.com",
+              "bucket-software00.s3.eu-west-1.amazonaws.com"
+            ],
+            "link_pattern": "datasheet"
+          }
+        ]
+      },
+      {
+        "id": "power-electronics-fp5020mu-pcsm-690-v-ul",
+        "model": "FP5020MU · PCSM 690 V UL",
+        "kind": "PCS with MV skid",
+        "market": "UL variant",
+        "notes": "GEN 3, 690 V datasheet, document V. 2.0.2 dated 2026-07-07. Rated comparison point: 40 °C; datasheet also lists 30, 35, and 50 °C values.",
+        "sources": []
+      }
+    ]
+  },
+  {
+    "id": "sma",
+    "name": "SMA",
+    "website": "https://www.sma-america.com/products/battery-inverters",
+    "products": [
+      {
+        "id": "sma-sunny-central-storage-up-xt-us",
+        "model": "Sunny Central Storage UP-XT-US",
+        "market": "United States",
+        "notes": "3450–3950 UP-XT-US family. Download portals may require a direct document URL to be configured.",
+        "sources": [
+          {
+            "name": "SMA · SCS UP-XT-US",
+            "url": "https://www.sma-america.com/products/battery-inverters/sunny-central-storage-3450-up-xt-us-3600-up-xt-us-3800-up-xt-us-3950-up-xt-us",
+            "allowed_hosts": [
+              "www.sma-america.com",
+              "files.sma.de",
+              "www.sma.de"
+            ],
+            "link_pattern": "scs, storage, data sheet, datasheet"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sungrow",
+    "name": "Sungrow",
+    "website": "https://www.sungrowpower.com",
+    "products": [
+      {
+        "id": "sungrow-sc5000ud-mv-us-p3",
+        "model": "SC5000UD-MV-US-P3",
+        "kind": "PCS with MV skid",
+        "market": "United States",
+        "sources": [
+          {
+            "name": "Sungrow · SC5000UD-MV-US-P3 product page",
+            "url": "https://www.sungrowpower.com/en/products/utility-energy-storage-system/b-sc5000ud-mv-us-p3",
+            "allowed_hosts": [
+              "www.sungrowpower.com",
+              "info-support.sungrowpower.com",
+              "en.sungrowpower.com"
+            ],
+            "link_pattern": "datasheet, sc5000"
+          },
+          {
+            "name": "Sungrow · SC5000UD-MV-US-P3 datasheet",
+            "url": "https://info-support.sungrowpower.com/datasheet-materials/141a8fd9-bd55-45eb-bed1-02ca586002d4.pdf",
+            "allowed_hosts": [
+              "info-support.sungrowpower.com"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dynapower",
+    "name": "Dynapower",
+    "website": "https://dynapower.com",
+    "products": [
+      {
+        "id": "dynapower-cps-1500",
+        "model": "CPS-1500",
+        "kind": "Model",
+        "market": "United States",
+        "notes": "Indoor/outdoor and DC configuration differences should be retained in rating conditions.",
+        "sources": [
+          {
+            "name": "Dynapower · CPS-1500 download page",
+            "url": "https://dynapower.com/resource/data-sheet-cps-1500-energy-storage-inverter/",
+            "allowed_hosts": [
+              "dynapower.com",
+              "www.dynapower.com"
+            ],
+            "link_pattern": "cps-1500, download"
+          },
+          {
+            "name": "Dynapower · CPS-1500 August 2025 datasheet",
+            "url": "https://dynapower.com/wp-content/uploads/2022/10/CPS-1500-Datasheet_Aug25_RGB.pdf",
+            "allowed_hosts": [
+              "dynapower.com",
+              "www.dynapower.com"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sinexcel",
+    "name": "Sinexcel",
+    "website": "https://en.sinexcel.com",
+    "products": [
+      {
+        "id": "sinexcel-stellaon-1575k",
+        "model": "StellaON 1575K",
+        "kind": "Model family",
+        "market": "CN / EX / NA variants",
+        "sources": [
+          {
+            "name": "Sinexcel · StellaON 1575K",
+            "url": "https://en.sinexcel.com/energy-storage/details.html?id=39",
+            "allowed_hosts": [
+              "en.sinexcel.com",
+              "www.sinexcel.com",
+              "www.sinexcel.us"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tmeic",
+    "name": "TMEIC",
+    "website": "https://www.tmeic.com",
+    "products": [
+      {
+        "id": "tmeic-energy-storage-pcs",
+        "model": "Energy Storage PCS",
+        "market": "Verify regional configuration",
+        "notes": "Starter family directory entry. Confirm the exact bidirectional PCS model; the product category also contains PV inverters.",
+        "sources": [
+          {
+            "name": "TMEIC · Energy storage product discovery",
+            "url": "https://www.tmeic.com/product-category/pv-inverters/",
+            "allowed_hosts": [
+              "www.tmeic.com",
+              "tmeic.com"
+            ],
+            "link_pattern": "energy-storage, bess, battery, storage"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ingeteam",
+    "name": "Ingeteam",
+    "website": "https://www.ingeteam.com",
+    "products": [
+      {
+        "id": "ingeteam-ingecon-sun-storage-fsk-c-series-hv",
+        "model": "INGECON SUN STORAGE FSK C Series HV",
+        "kind": "PCS with MV skid",
+        "market": "UL and IEC variants",
+        "sources": [
+          {
+            "name": "Ingeteam · Storage FSK C Series HV",
+            "url": "https://www.ingeteam.com/en/ingecon-sun-storage-fsk-c-series-hv",
+            "allowed_hosts": [
+              "www.ingeteam.com",
+              "ingeteam.com"
+            ],
+            "link_pattern": "datasheet, data sheet, storage, fsk"
+          }
+        ]
+      }
+    ]
+  }
+]

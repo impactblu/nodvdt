@@ -1,0 +1,219 @@
+[
+  {
+    "key": "rated_kw",
+    "label": "Rated active power",
+    "unit": "kW",
+    "kind": "number",
+    "group": "Power"
+  },
+  {
+    "key": "rated_kva",
+    "label": "Rated apparent power",
+    "unit": "kVA",
+    "kind": "number",
+    "group": "Power"
+  },
+  {
+    "key": "dc_min_v",
+    "label": "DC operating minimum",
+    "unit": "V",
+    "kind": "number",
+    "group": "DC side"
+  },
+  {
+    "key": "dc_max_v",
+    "label": "DC operating maximum",
+    "unit": "V",
+    "kind": "number",
+    "group": "DC side"
+  },
+  {
+    "key": "full_power_dc_range",
+    "label": "DC range at full power",
+    "unit": "V",
+    "kind": "text",
+    "group": "DC side"
+  },
+  {
+    "key": "max_dc_current_a",
+    "label": "Maximum DC current",
+    "unit": "A",
+    "kind": "number",
+    "group": "DC side"
+  },
+  {
+    "key": "ac_voltage_v",
+    "label": "PCS AC voltage",
+    "unit": "V",
+    "kind": "number",
+    "group": "AC side"
+  },
+  {
+    "key": "mv_voltage_kv",
+    "label": "MV output voltage",
+    "unit": "kV",
+    "kind": "text",
+    "group": "AC side"
+  },
+  {
+    "key": "frequency_hz",
+    "label": "AC frequency",
+    "unit": "Hz",
+    "kind": "text",
+    "group": "AC side"
+  },
+  {
+    "key": "efficiency_max_pct",
+    "label": "Maximum PCS efficiency",
+    "unit": "%",
+    "kind": "number",
+    "group": "Efficiency"
+  },
+  {
+    "key": "efficiency_weighted_pct",
+    "label": "Weighted PCS efficiency",
+    "unit": "%",
+    "kind": "number",
+    "group": "Efficiency"
+  },
+  {
+    "key": "efficiency_with_mvt_pct",
+    "label": "Maximum efficiency including MV transformer",
+    "unit": "%",
+    "kind": "number",
+    "group": "Efficiency"
+  },
+  {
+    "key": "power_factor",
+    "label": "Power factor range",
+    "unit": "",
+    "kind": "text",
+    "group": "AC side"
+  },
+  {
+    "key": "reactive_capability",
+    "label": "Reactive power capability",
+    "unit": "",
+    "kind": "text",
+    "group": "AC side"
+  },
+  {
+    "key": "gfm",
+    "label": "Grid forming",
+    "unit": "",
+    "kind": "text",
+    "group": "Grid support"
+  },
+  {
+    "key": "gfl",
+    "label": "Grid following",
+    "unit": "",
+    "kind": "text",
+    "group": "Grid support"
+  },
+  {
+    "key": "black_start",
+    "label": "Black start",
+    "unit": "",
+    "kind": "text",
+    "group": "Grid support"
+  },
+  {
+    "key": "overload",
+    "label": "Overload capability",
+    "unit": "",
+    "kind": "text",
+    "group": "Grid support"
+  },
+  {
+    "key": "temp_min_c",
+    "label": "Operating temperature minimum",
+    "unit": "°C",
+    "kind": "number",
+    "group": "Environment & build"
+  },
+  {
+    "key": "temp_max_c",
+    "label": "Operating temperature maximum",
+    "unit": "°C",
+    "kind": "number",
+    "group": "Environment & build"
+  },
+  {
+    "key": "derating",
+    "label": "Derating conditions",
+    "unit": "",
+    "kind": "text",
+    "group": "Environment & build"
+  },
+  {
+    "key": "cooling",
+    "label": "Cooling",
+    "unit": "",
+    "kind": "text",
+    "group": "Environment & build"
+  },
+  {
+    "key": "enclosure",
+    "label": "Enclosure rating",
+    "unit": "",
+    "kind": "text",
+    "group": "Environment & build"
+  },
+  {
+    "key": "dimensions",
+    "label": "Dimensions (W × H × D)",
+    "unit": "",
+    "kind": "text",
+    "group": "Environment & build"
+  },
+  {
+    "key": "weight_kg",
+    "label": "Weight",
+    "unit": "kg",
+    "kind": "number",
+    "group": "Environment & build"
+  },
+  {
+    "key": "noise",
+    "label": "Acoustic rating and distance",
+    "unit": "",
+    "kind": "text",
+    "group": "Environment & build"
+  },
+  {
+    "key": "communications",
+    "label": "Communications",
+    "unit": "",
+    "kind": "text",
+    "group": "Other"
+  },
+  {
+    "key": "standards",
+    "label": "Stated standards / listings",
+    "unit": "",
+    "kind": "text",
+    "group": "Other"
+  },
+  {
+    "key": "transformer",
+    "label": "Transformer / integration scope",
+    "unit": "",
+    "kind": "text",
+    "group": "Other"
+  },
+  {
+    "key": "warranty",
+    "label": "Warranty",
+    "unit": "",
+    "kind": "text",
+    "group": "Other"
+  },
+  {
+    "key": "origin",
+    "label": "Stated manufacturing origin",
+    "unit": "",
+    "kind": "text",
+    "group": "Other"
+  }
+]

@@ -1,0 +1,36 @@
+# PCS Atlas collector — paste this into UGOS Docker › Project › Create.
+# Storage path: Shared folder/docker/pcs-atlas
+# That folder must contain the .env file and an empty folder named "checkout".
+#
+# Same pattern as the LT2 watcher: a stock Python image that installs git and
+# pdftotext on start. On first start it clones the website repository into
+# checkout/repo and runs the collector from there, so pushing new collector
+# code to GitHub and restarting this project is all it takes to update it.
+
+services:
+  pcs-atlas:
+    image: python:3.12-slim
+    container_name: pcs-atlas-collector
+    env_file:
+      - ./.env
+    environment:
+      - PYTHONUNBUFFERED=1
+      - REPO_DIR=/work/repo
+    volumes:
+      - ./checkout:/work
+    command: >
+      sh -c "apt-get update &&
+             apt-get install -y --no-install-recommends git poppler-utils ca-certificates &&
+             if [ ! -d /work/repo/.git ]; then
+               echo '===== First start: cloning repository =====';
+               git clone --branch $$GIT_BRANCH https://x-access-token:$$GITHUB_TOKEN@github.com/$$GITHUB_REPO.git /work/repo;
+             fi &&
+             cd /work/repo/collector &&
+             echo '===== Starting PCS Atlas collector =====' &&
+             exec python -m collector run"
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"

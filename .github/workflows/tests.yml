@@ -1,0 +1,23 @@
+name: Collector tests
+
+# Runs the collector's tests when its code changes. (The daily data pushes
+# from the NAS don't trigger this; Vercel validates the data on every deploy.)
+
+on:
+  push:
+    branches: [main]
+    paths: ["collector/**", "data/suppliers.json", "data/fields.json", ".github/workflows/tests.yml"]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pdftotext
+        run: sudo apt-get update -q && sudo apt-get install -y -q poppler-utils
+      - name: Validate data and run tests
+        working-directory: collector
+        run: |
+          python3 -m collector validate --root ..
+          python3 -m unittest discover -s tests -t tests

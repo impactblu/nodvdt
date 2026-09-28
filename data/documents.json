@@ -1,0 +1,249 @@
+[
+  {
+    "id": "powerelectronics-ds-pcsm-iec-2-0-0-690v-gen3-en",
+    "supplier": "power-electronics",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "title": "Datasheet PCSM 690 IEC GEN 3 2.0",
+    "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-PCSM-IEC-2.0.0-690V-GEN3-EN.pdf",
+    "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
+    "first_seen": "2026-09-07T22:18:13+00:00",
+    "last_checked": "2026-09-07T22:18:13+00:00",
+    "revisions": [
+      {
+        "sha256": "e4d82aad98659e331df5eff12587472470a31c8da1c1838204d174e8e1c230e6",
+        "file": "datasheets/e4d82aad9865/PowerElectronics-DS-PCSM-IEC-2.0.0-690V-GEN3-EN.pdf",
+        "bytes": 573761,
+        "pages": 2,
+        "captured_at": "2026-09-07T22:18:13+00:00"
+      }
+    ]
+  },
+  {
+    "id": "powerelectronics-ds-pcsm-ul-2-0-0-690v-gen3-en",
+    "supplier": "power-electronics",
+    "product": "power-electronics-fp5020mu-pcsm-690-v-ul",
+    "title": "Datasheet PCSM 690 UL GEN 3 2.0",
+    "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-PCSM-UL-2.0.0-690V-GEN3-EN.pdf",
+    "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
+    "first_seen": "2026-09-07T22:18:21+00:00",
+    "last_checked": "2026-09-07T22:18:21+00:00",
+    "revisions": [
+      {
+        "sha256": "9909a669ba4832b3a967178ed519eae32356feae6b1bbc503f01346108e38855",
+        "file": "datasheets/9909a669ba48/PowerElectronics-DS-PCSM-UL-2.0.0-690V-GEN3-EN.pdf",
+        "bytes": 573671,
+        "pages": 2,
+        "captured_at": "2026-09-07T22:18:21+00:00"
+      }
+    ]
+  },
+  {
+    "id": "powerelectronics-ds-pcsm-iec-2-0-0-720v-gen3-en",
+    "supplier": "power-electronics",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "title": "Datasheet PCSM 720 IEC GEN 3 2.0",
+    "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-PCSM-IEC-2.0.0-720V-GEN3-EN.pdf",
+    "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
+    "first_seen": "2026-09-07T22:18:29+00:00",
+    "last_checked": "2026-09-07T22:18:29+00:00",
+    "revisions": [
+      {
+        "sha256": "869aa0e49b04b0fd268ad026d8f17a940c0c95fc22627e06e296250ecf2da970",
+        "file": "datasheets/869aa0e49b04/PowerElectronics-DS-PCSM-IEC-2.0.0-720V-GEN3-EN.pdf",
+        "bytes": 575578,
+        "pages": 2,
+        "captured_at": "2026-09-07T22:18:29+00:00"
+      }
+    ]
+  },
+  {
+    "id": "powerelectronics-ds-pcsm-ul-2-0-0-720v-gen3-en",
+    "supplier": "power-electronics",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "title": "Datasheet PCSM 720 UL GEN 3 2.0",
+    "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-PCSM-UL-2.0.0-720V-GEN3-EN.pdf",
+    "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
+    "first_seen": "2026-09-07T22:18:37+00:00",
+    "last_checked": "2026-09-07T22:18:37+00:00",
+    "revisions": [
+      {
+        "sha256": "2fd49ba865b58ccd2fcc817b6f588f95a9eebfaff5e1cebd9b76b78d13b800a5",
+        "file": "datasheets/2fd49ba865b5/PowerElectronics-DS-PCSM-UL-2.0.0-720V-GEN3-EN.pdf",
+        "bytes": 576520,
+        "pages": 2,
+        "captured_at": "2026-09-07T22:18:37+00:00"
+      }
+    ]
+  },
+  {
+    "id": "powerelectronics-ds-pcsm-iec-1-4-2-en",
+    "supplier": "power-electronics",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "title": "Datasheet PCSM IEC GEN 3",
+    "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-PCSM-IEC-1.4.2-EN.pdf",
+    "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
+    "first_seen": "2026-09-07T22:18:44+00:00",
+    "last_checked": "2026-09-07T22:18:44+00:00",
+    "revisions": [
+      {
+        "sha256": "c584030c96d27c75413120b12441bf3e2d007415a5bbeae1683e49042bb7d4df",
+        "file": "datasheets/c584030c96d2/PowerElectronics-DS-PCSM-IEC-1.4.2-EN.pdf",
+        "bytes": 580113,
+        "pages": 2,
+        "captured_at": "2026-09-07T22:18:44+00:00"
+      }
+    ]
+  },
+  {
+    "id": "powerelectronics-ds-pcsm-ul-1-4-2-en",
+    "supplier": "power-electronics",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "title": "Datasheet PCSM UL GEN 3",
+    "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-PCSM-UL-1.4.2-EN.pdf",
+    "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
+    "first_seen": "2026-09-07T22:18:52+00:00",
+    "last_checked": "2026-09-07T22:18:52+00:00",
+    "revisions": [
+      {
+        "sha256": "e7e906c4afa5ed0bcf9f7da656665a58e536e027138f7c26da245ea7c7408fa4",
+        "file": "datasheets/e7e906c4afa5/PowerElectronics-DS-PCSM-UL-1.4.2-EN.pdf",
+        "bytes": 538304,
+        "pages": 2,
+        "captured_at": "2026-09-07T22:18:52+00:00"
+      }
+    ]
+  },
+  {
+    "id": "powerelectronics-ds-multipcsm-iec-2-0-0-690v-gen3-en",
+    "supplier": "power-electronics",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "title": "Datasheet Multi PCSM 690 IEC GEN 3 2.0",
+    "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-MULTIPCSM-IEC-2.0.0-690V-GEN3-EN.pdf",
+    "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
+    "first_seen": "2026-09-07T22:19:00+00:00",
+    "last_checked": "2026-09-07T22:19:00+00:00",
+    "revisions": [
+      {
+        "sha256": "36d52b558dd4d3660455fce7be92c915df1f3a6e750c6ef0186c32dfff4666cf",
+        "file": "datasheets/36d52b558dd4/PowerElectronics-DS-MULTIPCSM-IEC-2.0.0-690V-GEN3-EN.pdf",
+        "bytes": 702923,
+        "pages": 4,
+        "captured_at": "2026-09-07T22:19:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "powerelectronics-ds-multipcsm-ul-2-0-0-690v-gen3-en",
+    "supplier": "power-electronics",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "title": "Datasheet Multi PCSM 690 UL GEN 3 2.0",
+    "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-MULTIPCSM-UL-2.0.0-690V-GEN3-EN.pdf",
+    "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
+    "first_seen": "2026-09-07T22:19:07+00:00",
+    "last_checked": "2026-09-07T22:19:07+00:00",
+    "revisions": [
+      {
+        "sha256": "ce8ad9ab1fa1100e16596c895d2b4b5913bf378d1fad5f19c20c6dda6e276c88",
+        "file": "datasheets/ce8ad9ab1fa1/PowerElectronics-DS-MULTIPCSM-UL-2.0.0-690V-GEN3-EN.pdf",
+        "bytes": 563885,
+        "pages": 2,
+        "captured_at": "2026-09-07T22:19:07+00:00"
+      }
+    ]
+  },
+  {
+    "id": "powerelectronics-ds-multipcsm-iec-2-0-0-720v-gen3-en",
+    "supplier": "power-electronics",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "title": "Datasheet Multi PCSM 720 IEC GEN 3 2.0",
+    "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-MULTIPCSM-IEC-2.0.0-720V-GEN3-EN.pdf",
+    "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
+    "first_seen": "2026-09-07T22:19:15+00:00",
+    "last_checked": "2026-09-07T22:19:15+00:00",
+    "revisions": [
+      {
+        "sha256": "588989ef0498618567e42ca15d062e6c49cb63955b1383783e09f1d21fde7a69",
+        "file": "datasheets/588989ef0498/PowerElectronics-DS-MULTIPCSM-IEC-2.0.0-720V-GEN3-EN.pdf",
+        "bytes": 710801,
+        "pages": 4,
+        "captured_at": "2026-09-07T22:19:15+00:00"
+      }
+    ]
+  },
+  {
+    "id": "powerelectronics-ds-multipcsm-ul-2-0-0-720v-gen3-en",
+    "supplier": "power-electronics",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "title": "Datasheet Multi PCSM 720 UL GEN 3 2.0",
+    "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-MULTIPCSM-UL-2.0.0-720V-GEN3-EN.pdf",
+    "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
+    "first_seen": "2026-09-07T22:19:23+00:00",
+    "last_checked": "2026-09-07T22:19:23+00:00",
+    "revisions": [
+      {
+        "sha256": "054efc7c6e270b33f16b285c890550d5b7f1e98500c9cc0ed60beb3a4dd2a2aa",
+        "file": "datasheets/054efc7c6e27/PowerElectronics-DS-MULTIPCSM-UL-2.0.0-720V-GEN3-EN.pdf",
+        "bytes": 563741,
+        "pages": 2,
+        "captured_at": "2026-09-07T22:19:23+00:00"
+      }
+    ]
+  },
+  {
+    "id": "powerelectronics-ds-multipcsm-iec-1-4-2-en",
+    "supplier": "power-electronics",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "title": "Datasheet Multi PCSM IEC GEN 3",
+    "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-MULTIPCSM-IEC-1.4.2-EN.pdf",
+    "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
+    "first_seen": "2026-09-07T22:19:31+00:00",
+    "last_checked": "2026-09-07T22:19:31+00:00",
+    "revisions": [
+      {
+        "sha256": "03c018813c646fa9f650875b6fbc766637ec598a7950ae2ac7d659c460e58220",
+        "file": "datasheets/03c018813c64/PowerElectronics-DS-MULTIPCSM-IEC-1.4.2-EN.pdf",
+        "bytes": 407544,
+        "pages": 4,
+        "captured_at": "2026-09-07T22:19:31+00:00"
+      }
+    ]
+  },
+  {
+    "id": "powerelectronics-ds-multipcsm-ul-1-4-2-en",
+    "supplier": "power-electronics",
+    "product": "power-electronics-pcsm-multi-pcsm",
+    "title": "Datasheet Multi PCSM UL GEN 3",
+    "url": "https://bucket-software00.s3.eu-west-1.amazonaws.com/web-power-electronics/media/storage/datasheets/EN/PowerElectronics-DS-MULTIPCSM-UL-1.4.2-EN.pdf",
+    "source_url": "https://power-electronics.com/en/storage/pcsm-&-multi-pcsm",
+    "first_seen": "2026-09-07T22:19:38+00:00",
+    "last_checked": "2026-09-07T22:19:38+00:00",
+    "revisions": [
+      {
+        "sha256": "8cebabc71c99df66cb0697469f90fa64b03a032666eedb945147d1ddab871324",
+        "file": "datasheets/8cebabc71c99/PowerElectronics-DS-MULTIPCSM-UL-1.4.2-EN.pdf",
+        "bytes": 528111,
+        "pages": 2,
+        "captured_at": "2026-09-07T22:19:38+00:00"
+      }
+    ]
+  },
+  {
+    "id": "sungrow-sc5000ud-mv-us-p3",
+    "supplier": "sungrow",
+    "product": "sungrow-sc5000ud-mv-us-p3",
+    "title": "SC5000UD-MV-US-P3 datasheet",
+    "url": "https://info-support.sungrowpower.com/datasheet-materials/141a8fd9-bd55-45eb-bed1-02ca586002d4.pdf",
+    "source_url": "https://info-support.sungrowpower.com/datasheet-materials/141a8fd9-bd55-45eb-bed1-02ca586002d4.pdf",
+    "first_seen": "2026-09-07T22:19:40+00:00",
+    "last_checked": "2026-09-07T22:19:40+00:00",
+    "revisions": [
+      {
+        "sha256": "a0b9f98148d0f5a71ba33d4df3f7ea094734fd5f4bbb10183e79e23153ddff39",
+        "file": "datasheets/a0b9f98148d0/Sungrow-SC5000UD-MV-US-P3.pdf",
+        "bytes": 767233,
+        "pages": 2,
+        "captured_at": "2026-09-07T22:19:40+00:00"
+      }
+    ]
+  }
+]
