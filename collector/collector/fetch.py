@@ -21,7 +21,7 @@ import urllib.request
 from dataclasses import dataclass
 from html.parser import HTMLParser
 from pathlib import PurePosixPath
-from urllib.parse import unquote, urljoin, urlsplit, urlunsplit
+from urllib.parse import quote, unquote, urljoin, urlsplit, urlunsplit
 from urllib.robotparser import RobotFileParser
 
 MAX_REDIRECTS = 5
@@ -47,7 +47,11 @@ def canonical_url(url: str) -> str:
         raise FetchError("URLs with embedded credentials are not allowed.")
     host = parts.hostname.lower().rstrip(".")
     netloc = host if parts.port in (None, 80, 443) else f"{host}:{parts.port}"
-    return urlunsplit((parts.scheme, netloc, parts.path or "/", parts.query, ""))
+    # Sites link to files with spaces and other raw characters in their names
+    # ("…/User Manual 20251202.pdf"); percent-encode them, keeping existing %XX escapes.
+    path = quote(parts.path or "/", safe="/%:@!$&'()*+,;=-._~")
+    query = quote(parts.query, safe="/%:@!$&'()*+,;=-._~?")
+    return urlunsplit((parts.scheme, netloc, path, query, ""))
 
 
 def check_public(host: str) -> None:

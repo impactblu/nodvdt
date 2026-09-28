@@ -41,7 +41,7 @@
         "id": "sma-sunny-central-storage-up-xt-us",
         "model": "Sunny Central Storage UP-XT-US",
         "market": "United States",
-        "notes": "3450–3950 UP-XT-US family. Download portals may require a direct document URL to be configured.",
+        "notes": "3450–3950 UP-XT-US family. SMA's product page loads downloads with JavaScript, so the datasheet is watched through its direct link; a new SMA version gets a new file name and will need the link updated.",
         "sources": [
           {
             "name": "SMA · SCS UP-XT-US",
@@ -52,6 +52,13 @@
               "www.sma.de"
             ],
             "link_pattern": "scs, storage, data sheet, datasheet"
+          },
+          {
+            "name": "SMA · SCS UP-XT-US datasheet (direct link)",
+            "url": "https://files.sma.de/downloads/SCS-UP-XT-US-DS-en-24.pdf",
+            "allowed_hosts": [
+              "files.sma.de"
+            ]
           }
         ]
       }
@@ -140,7 +147,8 @@
               "en.sinexcel.com",
               "www.sinexcel.com",
               "www.sinexcel.us"
-            ]
+            ],
+            "link_pattern": "datasheet"
           }
         ]
       }
@@ -153,20 +161,21 @@
     "products": [
       {
         "id": "tmeic-energy-storage-pcs",
-        "model": "Energy Storage PCS",
-        "market": "Verify regional configuration",
-        "notes": "Starter family directory entry. Confirm the exact bidirectional PCS model; the product category also contains PV inverters.",
+        "model": "Solar Ware Ninja Universal PCS",
+        "market": "Global; BSU storage variants 550–840 kW",
+        "notes": "TMEIC's storage-capable PCS. The BSU-L variants are the energy-storage configurations.",
         "sources": [
           {
-            "name": "TMEIC · Energy storage product discovery",
-            "url": "https://www.tmeic.com/product-category/pv-inverters/",
+            "name": "TMEIC · Solar Ware Ninja product page",
+            "url": "https://tmeic.com/products/solar-ware-ninja-universal-pcs/",
             "allowed_hosts": [
-              "www.tmeic.com",
-              "tmeic.com"
+              "tmeic.com",
+              "www.tmeic.com"
             ],
-            "link_pattern": "energy-storage, bess, battery, storage"
+            "link_pattern": "ninja, brochure, datasheet"
           }
-        ]
+        ],
+        "kind": "Universal PCS (PV or bi-directional storage)"
       }
     ]
   },

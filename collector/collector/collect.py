@@ -60,6 +60,7 @@ def run(catalog: Catalog, settings: Settings, check_address=check_public, fetche
             else:
                 fetcher = Fetcher(hosts, settings.user_agent, settings.request_delay_seconds,
                                   settings.max_file_bytes, check_address=check_address)
+            log.info("Checking %s", source.get("name", source["url"]))
             result = {"supplier": supplier["id"], "product": product["id"],
                       "name": source.get("name", source["url"]), "url": source["url"],
                       "files": 0, "ok": True, "error": None}
@@ -73,6 +74,9 @@ def run(catalog: Catalog, settings: Settings, check_address=check_public, fetche
                 result["ok"], result["error"] = False, f"Unexpected error: {exc}"
             if result["error"]:
                 summary.errors.append(f"{result['name']}: {result['error']}")
+                log.info("  problem: %s", result["error"][:300])
+            else:
+                log.info("  ok, %d file(s)", result["files"])
             source_results.append(result)
 
     catalog.status = {
@@ -112,7 +116,8 @@ def _check_source(catalog, fetcher, supplier, product, source, result, summary) 
     errors = []
     for url in urls:
         try:
-            _check_file(catalog, fetcher, supplier, product, source, url, first if url == urls[0] else None, summary)
+            _check_file(catalog, fetcher, supplier, product, source, url, first if url == urls[0] else None,
+                        summary, referer=None if first else resp.url)
             result["files"] += 1
             summary.files_checked += 1
         except FetchError as exc:
@@ -122,12 +127,14 @@ def _check_source(catalog, fetcher, supplier, product, source, result, summary) 
         result["error"] = "; ".join(errors)[:2000]
 
 
-def _check_file(catalog: Catalog, fetcher, supplier, product, source, url, prefetched, summary) -> None:
+def _check_file(catalog: Catalog, fetcher, supplier, product, source, url, prefetched, summary,
+                referer: str | None = None) -> None:
     doc = catalog.document_by_url(url)
     if prefetched is not None:
         resp = prefetched
     else:
-        headers = {}
+        # Some sites refuse file downloads that don't come from their own product page.
+        headers = {"Referer": referer} if referer else {}
         if doc:
             rev = current_revision(doc)
             if rev.get("etag"):
@@ -177,6 +184,7 @@ def _check_file(catalog: Catalog, fetcher, supplier, product, source, url, prefe
         }
         catalog.documents.append(doc)
         summary.new_documents += 1
+        log.info("  new datasheet: %s", doc["title"])
         catalog.log("new-datasheet", f"New datasheet found: {doc['title']}",
                     document=doc["id"], product=product["id"], revision=digest)
         return
@@ -185,6 +193,7 @@ def _check_file(catalog: Catalog, fetcher, supplier, product, source, url, prefe
     doc["revisions"].append(revision)
     doc["last_checked"] = revision["captured_at"]
     summary.new_revisions += 1
+    log.info("  revised datasheet: %s", doc["title"])
     counts = recheck_specs(catalog, doc, previous, revision, pages)
     summary.values_confirmed += counts[verify.CONFIRMED]
     summary.values_updated += counts[verify.UPDATED]

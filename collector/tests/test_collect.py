@@ -141,6 +141,26 @@ class CollectTests(unittest.TestCase):
                                  "https://maker.example/dl?id=4"])
 
 
+class UrlTests(unittest.TestCase):
+    def test_spaces_in_file_names_are_encoded(self):
+        from collector.fetch import canonical_url
+        self.assertEqual(canonical_url("https://A.example/up/Manual 2025.pdf"),
+                         "https://a.example/up/Manual%202025.pdf")
+        self.assertEqual(canonical_url("https://a.example/x%20y.pdf?id=1&v=a b"),
+                         "https://a.example/x%20y.pdf?id=1&v=a%20b")
+
+    def test_file_download_sends_product_page_as_referer(self):
+        tmp = tempfile.TemporaryDirectory()
+        root = Path(tmp.name)
+        write_repo(root, SUPPLIERS, FIELDS)
+        web = FakeWeb({"maker.example", "files.maker.example"}, {PAGE: HTML, PDF_URL: V1})
+        catalog = Catalog.load(root)
+        collect.run(catalog, settings(root), fetcher_factory=lambda hosts: web)
+        pdf_headers = [h for url, h in web.requests if url == PDF_URL][0]
+        self.assertEqual(pdf_headers.get("Referer"), PAGE)
+        tmp.cleanup()
+
+
 class RealDataTests(unittest.TestCase):
     def test_repository_data_is_consistent(self):
         root = Path(__file__).resolve().parents[2]
