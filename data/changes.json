@@ -1,5 +1,13 @@
 [
   {
+    "at": "2026-09-28T06:53:08+00:00",
+    "type": "new-datasheet",
+    "summary": "New datasheet found: PWX1 1575KTL H EX NA Datasheet 20260115",
+    "document": "pwx1-1575ktl-h-ex-na-datasheet-20260115",
+    "product": "sinexcel-stellaon-1575k",
+    "revision": "effa4205ce87489579c7497767f3dda064825b2dab249cab5b9a066365674472"
+  },
+  {
     "at": "2026-09-28T06:20:51+00:00",
     "type": "new-datasheet",
     "summary": "New datasheet found: SolarwareNinjaBrochure0523 web",
