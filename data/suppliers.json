@@ -3,6 +3,18 @@
     "id": "power-electronics",
     "name": "Power Electronics",
     "website": "https://power-electronics.com/en/storage",
+    "company": {
+      "hq_country": "ES",
+      "hq_city": "Valencia",
+      "sources": [
+        {
+          "title": "Power Electronics website",
+          "url": "https://power-electronics.com/en/storage"
+        }
+      ],
+      "reviewed_by": "",
+      "reviewed_at": ""
+    },
     "model_pattern": "\\bFP\\d{4}M[A-Z]{0,2}\\d?\\b",
     "notes": "Initial official source directory checked September 7, 2026. Product families and regional variants require review.",
     "products": [
@@ -40,6 +52,18 @@
     "id": "sma",
     "name": "SMA",
     "website": "https://www.sma-america.com/products/battery-inverters",
+    "company": {
+      "hq_country": "DE",
+      "hq_city": "Niestetal",
+      "sources": [
+        {
+          "title": "SMA website",
+          "url": "https://www.sma-america.com/products/battery-inverters"
+        }
+      ],
+      "reviewed_by": "",
+      "reviewed_at": ""
+    },
     "model_pattern": "\\bSCS\\s?\\d{4}\\s?-?UP-XT(?:-US)?\\b",
     "products": [
       {
@@ -75,6 +99,18 @@
     "id": "sungrow",
     "name": "Sungrow",
     "website": "https://www.sungrowpower.com",
+    "company": {
+      "hq_country": "CN",
+      "hq_city": "Hefei",
+      "sources": [
+        {
+          "title": "Sungrow website",
+          "url": "https://www.sungrowpower.com"
+        }
+      ],
+      "reviewed_by": "",
+      "reviewed_at": ""
+    },
     "model_pattern": "\\bSC\\d{4}UD[-A-Z0-9]*\\b",
     "products": [
       {
@@ -109,6 +145,27 @@
     "id": "dynapower",
     "name": "Dynapower",
     "website": "https://dynapower.com",
+    "company": {
+      "hq_country": "US",
+      "hq_city": "South Burlington, Vermont",
+      "parent": {
+        "name": "Sensata Technologies Holding plc",
+        "country": "US",
+        "note": "Acquired July 2022. Head office in Attleboro, Massachusetts; the holding company is incorporated in England and Wales."
+      },
+      "sources": [
+        {
+          "title": "Sensata: acquisition of Dynapower completed (2022)",
+          "url": "https://www.sensata.com/contact/newsroom/sensata-technologies-completes-acquisition-dynapower"
+        },
+        {
+          "title": "Sensata annual report (10-K) for 2025",
+          "url": "https://www.sec.gov/Archives/edgar/data/1477294/000147729426000007/st-20251231.htm"
+        }
+      ],
+      "reviewed_by": "",
+      "reviewed_at": ""
+    },
     "model_pattern": "\\bCPS-\\d{3,4}\\b",
     "products": [
       {
@@ -144,6 +201,18 @@
     "id": "sinexcel",
     "name": "Sinexcel",
     "website": "https://en.sinexcel.com",
+    "company": {
+      "hq_country": "CN",
+      "hq_city": "Shenzhen",
+      "sources": [
+        {
+          "title": "Sinexcel website",
+          "url": "https://en.sinexcel.com"
+        }
+      ],
+      "reviewed_by": "",
+      "reviewed_at": ""
+    },
     "model_pattern": "\\bPWX1-\\d+KTL-[A-Z]+(?:-[A-Z]+)?\\b",
     "products": [
       {
@@ -171,6 +240,22 @@
     "id": "tmeic",
     "name": "TMEIC",
     "website": "https://www.tmeic.com",
+    "company": {
+      "hq_country": "JP",
+      "hq_city": "Tokyo",
+      "parent": {
+        "name": "Toshiba and Mitsubishi Electric (joint venture)",
+        "country": "JP"
+      },
+      "sources": [
+        {
+          "title": "TMEIC website",
+          "url": "https://www.tmeic.com"
+        }
+      ],
+      "reviewed_by": "",
+      "reviewed_at": ""
+    },
     "model_pattern": "\\bBSU-L\\d{4}GR\\b",
     "products": [
       {
@@ -198,6 +283,18 @@
     "id": "ingeteam",
     "name": "Ingeteam",
     "website": "https://www.ingeteam.com",
+    "company": {
+      "hq_country": "ES",
+      "hq_city": "Zamudio, Bizkaia",
+      "sources": [
+        {
+          "title": "Ingeteam website",
+          "url": "https://www.ingeteam.com"
+        }
+      ],
+      "reviewed_by": "",
+      "reviewed_at": ""
+    },
     "products": [
       {
         "id": "ingeteam-ingecon-sun-storage-fsk-c-series-hv",

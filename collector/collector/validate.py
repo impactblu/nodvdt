@@ -25,6 +25,9 @@ def problems(root: Path, check_hashes: bool = True) -> list[str]:
         if duplicates:
             found.append(f"Duplicate {label} ids: {sorted(duplicates)}")
 
+    for supplier in catalog.suppliers:
+        found.extend(_company_problems(supplier))
+
     for model in catalog.models:
         if model.get("supplier") not in supplier_ids:
             found.append(f"Discovered model {model.get('id')}: unknown supplier {model.get('supplier')}")
@@ -74,4 +77,33 @@ def problems(root: Path, check_hashes: bool = True) -> list[str]:
         for old in spec.get("history", []):
             if old.get("revision") and old["revision"] not in revisions:
                 found.append(f"{where}: history refers to an unknown revision")
+    return found
+
+
+def _is_country(code) -> bool:
+    return isinstance(code, str) and len(code) == 2 and code.isascii() and code.isalpha() and code.isupper()
+
+
+def _company_problems(supplier: dict) -> list[str]:
+    """The optional "company" block drives the country filter on the website."""
+    company = supplier.get("company")
+    if company is None:
+        return []
+    where = f"Supplier {supplier.get('id')}"
+    found = []
+    if not isinstance(company, dict):
+        return [f"{where}: company must be an object"]
+    if not _is_country(company.get("hq_country")):
+        found.append(f"{where}: company.hq_country must be a two-letter country code such as US, CN or ES")
+    parent = company.get("parent")
+    if parent is not None:
+        if not isinstance(parent, dict) or not parent.get("name"):
+            found.append(f"{where}: company.parent needs a name")
+        elif not _is_country(parent.get("country")):
+            found.append(f"{where}: company.parent.country must be a two-letter country code")
+    for source in company.get("sources") or []:
+        if not str(source.get("url", "")).startswith("https://") or not source.get("title"):
+            found.append(f"{where}: each company source needs a title and an https:// url")
+    if bool(company.get("reviewed_by")) != bool(company.get("reviewed_at")):
+        found.append(f"{where}: company.reviewed_by and company.reviewed_at go together")
     return found

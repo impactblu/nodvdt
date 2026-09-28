@@ -72,6 +72,21 @@ function condOf(spec) {
   return m ? `${m[1]} °C` : '';
 }
 
+// Country names come from the browser (no list to maintain); codes are ISO 3166-1 alpha-2.
+const regionName = (() => {
+  let names = null;
+  try { names = new Intl.DisplayNames(['en'], { type: 'region' }); } catch { /* very old browser: show the code */ }
+  return (code) => { try { return (code && names?.of(code)) || code || ''; } catch { return code || ''; } };
+})();
+// A maker belongs to every country it or its parent company is based in, so "Hide China" also hides a
+// Chinese-owned maker with a head office elsewhere.
+const countriesOf = (supplier) => [...new Set([supplier?.company?.hq_country, supplier?.company?.parent?.country].filter(Boolean))];
+function countryLine(supplier) {
+  const c = supplier?.company;
+  if (!c?.hq_country) return '';
+  const parent = c.parent?.country && c.parent.country !== c.hq_country ? `, owned from ${regionName(c.parent.country)}` : '';
+  return `${regionName(c.hq_country)}${parent}`;
+}
 const initials = (name) => { const caps = name.match(/[A-Z0-9]/g) || []; return (caps.length > 1 ? caps.join('') : name).slice(0, 2).toUpperCase(); };
 const pdfHref = (rev, page) => ROOT + rev.file.split('/').map(encodeURIComponent).join('/') + (page ? `#page=${page}` : '');
 const modelHref = (id, field) => `#/model/${encodeURIComponent(id)}${field ? `?f=${encodeURIComponent(field)}` : ''}`;
@@ -139,6 +154,11 @@ async function loadData() {
   for (const m of models) {
     const s = idx.suppliers.get(m.supplier);
     if (s && !idx.products.has(m.id)) idx.products.set(m.id, { ...m, supplier: s });
+  }
+  idx.countries = new Map();
+  for (const s of suppliers) for (const code of countriesOf(s)) {
+    if (!idx.countries.has(code)) idx.countries.set(code, []);
+    idx.countries.get(code).push(s);
   }
   idx.documents = new Map(documents.map((d) => [d.id, d]));
   idx.revisions = new Map();
@@ -339,6 +359,7 @@ function viewHome(params) {
             <option value="">All manufacturers</option>
             ${db.suppliers.map((s) => `<option value="${esc(s.id)}">${esc(s.name)}</option>`).join('')}
           </select>
+          ${countryPicker()}
           <select class="select" id="f-sort" aria-label="Sort by">
             <option value="featured">Sort: most reviewed</option>
             <option value="name">Sort: name</option>
@@ -347,6 +368,7 @@ function viewHome(params) {
           </select>
           <span class="count" id="result-count" aria-live="polite"></span>
         </div>
+        <div class="chips" id="country-chips" hidden></div>
         <div class="tbl"><table>
           <thead><tr><th class="cb"><span class="sr-only">Compare</span></th><th class="mc">Model</th><th class="r">Rated power</th><th class="r">DC max</th><th class="r">Peak efficiency</th><th class="r">Grid</th><th>Source</th><th><span class="sr-only">Open</span></th></tr></thead>
           <tbody id="model-rows"></tbody>
@@ -365,6 +387,8 @@ function viewHome(params) {
         show: params.get('show') || 'all',
         supplier: params.get('supplier') || '',
         sort: params.get('sort') || 'featured',
+        cmode: params.get('only') ? 'only' : 'hide',
+        countries: new Set((params.get('only') || params.get('hide') || '').split(',').map((c) => c.trim().toUpperCase()).filter((c) => idx.countries.has(c))),
         open: new Set(),
       };
       tools.querySelector('#f-supplier').value = state.supplier;
@@ -375,6 +399,7 @@ function viewHome(params) {
           const v = state[k];
           if (v && !(k === 'show' && v === 'all') && !(k === 'sort' && v === 'featured')) next.set(k, v);
         }
+        if (state.countries.size) next.set(state.cmode, [...state.countries].sort().join(','));
         history.replaceState(null, '', next.toString() ? `#/?${next}` : '#/');
         currentHash = location.hash;
         renderRows(state);
@@ -382,6 +407,7 @@ function viewHome(params) {
       tools.querySelectorAll('[data-show]').forEach((b) => b.addEventListener('click', () => { state.show = b.dataset.show; update(); }));
       tools.querySelector('#f-supplier').addEventListener('change', (e) => { state.supplier = e.target.value; update(); });
       tools.querySelector('#f-sort').addEventListener('change', (e) => { state.sort = e.target.value; update(); });
+      bindCountryPicker(state, update);
       document.getElementById('model-rows').addEventListener('click', (e) => {
         const fam = e.target.closest('tr.family');
         if (!fam || e.target.closest('a, input, button:not(.fam-toggle)')) return;
@@ -391,9 +417,89 @@ function viewHome(params) {
       });
       headerSearchHandler = (q) => { state.q = q; update(); };
       renderRows(state);
-      if (state.q || params.get('supplier') || params.get('show')) document.getElementById('models').scrollIntoView();
+      if (state.q || params.get('supplier') || params.get('show') || params.get('hide') || params.get('only')) document.getElementById('models').scrollIntoView();
     },
   };
+}
+
+// ------------------------------------------------------------------ country filter
+
+function countryAllows(state, supplier) {
+  if (!state.countries.size) return true;
+  const hit = countriesOf(supplier).some((c) => state.countries.has(c));
+  return state.cmode === 'only' ? hit : !hit;
+}
+
+function countryPicker() {
+  if (!idx.countries.size) return '';
+  const list = [...idx.countries].sort(([a], [b]) => regionName(a).localeCompare(regionName(b)));
+  return `<details class="pop" id="f-country">
+    <summary class="select" aria-label="Filter by country"><span id="country-summary">All countries</span></summary>
+    <div class="pop-body">
+      <div class="seg" role="group" aria-label="Country filter mode">
+        <button type="button" data-cmode="hide">Hide selected</button>
+        <button type="button" data-cmode="only">Show only selected</button>
+      </div>
+      <fieldset>
+        <legend class="sr-only">Countries</legend>
+        ${list.map(([code, makers]) => `<label class="opt"><input type="checkbox" class="check" value="${esc(code)}">
+          <span>${esc(regionName(code))}</span><small>${esc(makers.map((m) => m.name).join(', '))}</small></label>`).join('')}
+      </fieldset>
+      <p class="pop-note">A manufacturer counts for a country if it or its parent company is based there.</p>
+      <button type="button" class="btn ghost sm" data-cclear>Clear</button>
+    </div>
+  </details>`;
+}
+
+function countrySummary(state) {
+  if (!state.countries.size) return 'All countries';
+  const names = [...state.countries].map(regionName).sort();
+  const text = names.length > 2 ? `${names.length} countries` : names.join(', ');
+  return `${state.cmode === 'only' ? 'Only' : 'Hiding'}: ${text}`;
+}
+
+function bindCountryPicker(state, update) {
+  const pop = document.getElementById('f-country');
+  if (!pop) return;
+  const sync = () => {
+    pop.querySelectorAll('[data-cmode]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.cmode === state.cmode)));
+    pop.querySelectorAll('input[type="checkbox"]').forEach((box) => { box.checked = state.countries.has(box.value); });
+    document.getElementById('country-summary').textContent = countrySummary(state);
+    pop.classList.toggle('on', state.countries.size > 0);
+  };
+  pop.addEventListener('change', (e) => {
+    const box = e.target.closest('input[type="checkbox"]');
+    if (!box) return;
+    if (box.checked) state.countries.add(box.value); else state.countries.delete(box.value);
+    sync(); update();
+  });
+  pop.addEventListener('click', (e) => {
+    const mode = e.target.closest('[data-cmode]');
+    if (mode) { state.cmode = mode.dataset.cmode; sync(); update(); return; }
+    if (e.target.closest('[data-cclear]')) { state.countries.clear(); sync(); update(); }
+  });
+  // Chips under the toolbar remove one country each.
+  document.getElementById('country-chips').addEventListener('click', (e) => {
+    const chip = e.target.closest('[data-uncountry]');
+    if (!chip) return;
+    state.countries.delete(chip.dataset.uncountry);
+    sync(); update();
+  });
+  // Close on outside click or Escape, returning focus to the toggle.
+  const { signal } = viewAbort;
+  document.addEventListener('click', (e) => { if (pop.open && !pop.contains(e.target)) pop.open = false; }, { signal });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && pop.open) { pop.open = false; pop.querySelector('summary').focus(); }
+  }, { signal });
+  sync();
+}
+
+function renderCountryChips(state) {
+  const box = document.getElementById('country-chips');
+  if (!box) return;
+  box.hidden = !state.countries.size;
+  box.innerHTML = state.countries.size ? `<span>${state.cmode === 'only' ? 'Showing only manufacturers from' : 'Hiding manufacturers from'}</span>
+    ${[...state.countries].sort().map((c) => `<button type="button" class="chip" data-uncountry="${esc(c)}" aria-label="Remove ${esc(regionName(c))}">${esc(regionName(c))}${icon('x')}</button>`).join('')}` : '';
 }
 
 function pickExample() {
@@ -422,6 +528,7 @@ function renderRows(state) {
     const text = `${p.model} ${p.supplier.name} ${p.kind || ''} ${p.market || ''} ${p.summary || ''}`.toLowerCase();
     return (!q || q.split(/\s+/).every((w) => text.includes(w)))
       && (!state.supplier || p.supplier.id === state.supplier)
+      && countryAllows(state, p.supplier)
       && (state.show === 'all' || kindOf(p) === state.show);
   };
   const narrowed = Boolean(q || state.show !== 'all');
@@ -434,7 +541,7 @@ function renderRows(state) {
     const members = idx.containers.has(p.id) && idx.familyMembers.get(p.id);
     if (members) {
       const hit = members.filter(matches);
-      const selfHit = !narrowed && (!state.supplier || p.supplier.id === state.supplier) && (!q || matches(p));
+      const selfHit = !narrowed && (!state.supplier || p.supplier.id === state.supplier) && countryAllows(state, p.supplier) && (!q || matches(p));
       if (hit.length || selfHit) entries.push({ p, members: [...hit].sort(sorter), all: members });
     } else if (matches(p)) {
       entries.push({ p });
@@ -461,7 +568,8 @@ function renderRows(state) {
     } else {
       const s = idx.suppliers.get(key);
       const n = list.reduce((m, e) => m + (e.members ? e.all.length : 1), 0);
-      head = `<div class="grp-name"><span class="avatar">${esc(initials(s.name))}</span>${esc(s.name)} <span>${esc(plural(n, 'model'))}</span></div>`;
+      const where = countryLine(s);
+      head = `<div class="grp-name"><span class="avatar">${esc(initials(s.name))}</span>${esc(s.name)}${where ? `<span class="ctry">${esc(where)}</span>` : ''} <span>${esc(plural(n, 'model'))}</span></div>`;
     }
     return `<tr class="grp"><td colspan="8">${head}</td></tr>${list.map((e) => {
       if (!e.members) return itemRow(e.p);
@@ -472,7 +580,8 @@ function renderRows(state) {
 
   document.querySelectorAll('[data-show]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.show === state.show)));
   document.getElementById('result-count').textContent = `Showing ${shown} of ${idx.leaves.length}`;
-  document.getElementById('model-rows').innerHTML = rows || `<tr><td colspan="8"><div class="empty"><h3>No models match</h3><p>Try a different search, filter or manufacturer.</p></div></td></tr>`;
+  renderCountryChips(state);
+  document.getElementById('model-rows').innerHTML = rows || `<tr><td colspan="8"><div class="empty"><h3>No models match</h3><p>Try a different search, filter, manufacturer or country.</p></div></td></tr>`;
 }
 
 function cells(ids) {
@@ -686,7 +795,7 @@ function viewModel(id, params) {
       <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Models</a> / <a href="#/?supplier=${esc(p.supplier.id)}">${esc(p.supplier.name)}</a>${family ? ` / <a href="${modelHref(family.id)}">${esc(family.model)}</a>` : ''} / <b>${esc(p.model)}</b></nav>
       <div class="head">
         <div>
-          <div class="maker"><span class="avatar">${esc(initials(p.supplier.name))}</span>${esc(p.supplier.name)}</div>
+          <div class="maker"><span class="avatar">${esc(initials(p.supplier.name))}</span>${esc(p.supplier.name)}${countryLine(p.supplier) ? `<span class="ctry">${esc(countryLine(p.supplier))}</span>` : ''}</div>
           <h1>${esc(p.model)}</h1>
           ${p.summary ? `<p class="sub">${esc(p.summary)}</p>` : ''}
           <div class="tags">
@@ -704,6 +813,7 @@ function viewModel(id, params) {
       </div>
       ${kpiHtml}${notice}${autoNote}
       ${sheet}
+      ${ownershipHtml(p.supplier)}
       ${members.length ? memberTable(members, 'Models in this family', `${esc(plural(members.length, 'model'))} found in this family's datasheets. Select one to see its values and sources.`) : ''}
       ${related.length ? memberTable(related, 'Also in this datasheet', `${esc(plural(related.length, 'related model'))} listed in the same datasheet table.`) : ''}
       ${siblings.length > 1 ? `<details class="sib"><summary>${icon('caret-right')}Other models in ${esc(family.model)} (${siblings.length - 1})</summary>
@@ -758,6 +868,20 @@ function viewModel(id, params) {
       return false;
     },
   };
+}
+
+function ownershipHtml(s) {
+  const c = s.company;
+  if (!c?.hq_country) return '';
+  const reviewed = c.reviewed_by && c.reviewed_at;
+  return `<h2 class="sub-head">Company</h2>
+    <p class="sub-note">Used by the country filter on the models page.</p>
+    <dl class="owner">
+      <div><dt>Based in</dt><dd>${esc([c.hq_city, regionName(c.hq_country)].filter(Boolean).join(', '))}</dd></div>
+      <div><dt>Parent company</dt><dd>${c.parent?.name ? `${esc(c.parent.name)}${c.parent.country ? `, ${esc(regionName(c.parent.country))}` : ''}${c.parent.note ? `<small>${esc(c.parent.note)}</small>` : ''}` : 'None, independent'}</dd></div>
+      ${c.sources?.length ? `<div><dt>Sources</dt><dd>${c.sources.map((src) => `<a class="link" href="${esc(src.url)}" target="_blank" rel="noopener">${esc(src.title)}</a>`).join('<br>')}</dd></div>` : ''}
+      <div><dt>Status</dt><dd>${reviewed ? `<span class="pill rev">${icon('check')}Reviewed ${esc(fmtDate(c.reviewed_at))}</span>` : `<span class="pill auto">Not reviewed yet</span>`}</dd></div>
+    </dl>`;
 }
 
 function specRow(spec) {

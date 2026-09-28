@@ -82,6 +82,21 @@ without a box rather than with a wrong one.
 `url` can be a product page (PDF links on it that match `link_pattern` are collected) or a direct PDF link.
 Sites that load downloads with JavaScript need the direct PDF link.
 
+**Set a manufacturer's country** — each supplier in `data/suppliers.json` has a `company` block that drives the
+country filter on the models page:
+
+```
+"company": { "hq_country": "US", "hq_city": "South Burlington, Vermont",
+             "parent": { "name": "Parent Co", "country": "US", "note": "optional context" },
+             "sources": [{ "title": "Where this comes from", "url": "https://..." }],
+             "reviewed_by": "", "reviewed_at": "" }
+```
+
+Countries are two-letter ISO codes (`CN`, `US`, `ES`). A manufacturer counts for a country if it or its parent is
+based there, so hiding China also hides a Chinese-owned maker with a head office elsewhere. Leave out `parent` for
+independent companies. The site shows "Not reviewed yet" until `reviewed_by` and `reviewed_at` are filled in.
+Filtered lists can be shared: `#/?hide=CN` or `#/?only=US,ES`.
+
 **Publish a value** — add an entry to `data/specs.json` (copy an existing one). Required: `product`, `field`,
 `value`, `evidence` (the datasheet line, exactly as printed), `document`, `revision` (the sha256 from `documents.json`),
 `page`, `status: "reviewed"`, `reviewed_by`, `reviewed_at`. If the evidence combines several table cells, also add
