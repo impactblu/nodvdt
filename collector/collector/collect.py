@@ -7,7 +7,7 @@ import logging
 from dataclasses import dataclass, field
 from urllib.parse import urlsplit
 
-from . import verify
+from . import extraction, verify
 from .config import Settings
 from .fetch import FetchError, Fetcher, canonical_url, check_public, datasheet_links, filename_for
 from .pdftext import page_texts
@@ -25,11 +25,13 @@ class RunSummary:
     values_confirmed: int = 0
     values_updated: int = 0
     values_need_check: int = 0
+    values_extracted: int = 0
+    models_added: int = 0
     errors: list = field(default_factory=list)
 
     @property
     def changed(self) -> bool:
-        return bool(self.new_documents or self.new_revisions)
+        return bool(self.new_documents or self.new_revisions or self.values_extracted or self.models_added)
 
     def commit_message(self) -> str:
         problems = f", {len(self.errors)} source problem(s)" if self.errors else ""
@@ -44,6 +46,10 @@ class RunSummary:
             parts.append(f"{self.values_updated} value(s) updated")
         if self.values_need_check:
             parts.append(f"{self.values_need_check} value(s) need checking")
+        if self.models_added:
+            parts.append(f"{self.models_added} new model(s)")
+        if self.values_extracted:
+            parts.append(f"{self.values_extracted} value(s) extracted")
         return "Collector: " + ", ".join(parts) + problems
 
 
@@ -79,6 +85,10 @@ def run(catalog: Catalog, settings: Settings, check_address=check_public, fetche
                 log.info("  ok, %d file(s)", result["files"])
             source_results.append(result)
 
+    # Read values from any datasheet version the extractor hasn't processed yet
+    # (new and revised datasheets, and everything after an extractor upgrade).
+    summary.values_extracted, summary.models_added = extraction.backfill(catalog)
+
     catalog.status = {
         "last_run_started": started,
         "last_run_finished": now(),
@@ -90,6 +100,8 @@ def run(catalog: Catalog, settings: Settings, check_address=check_public, fetche
             "new_revisions": summary.new_revisions,
             "values_updated": summary.values_updated,
             "values_need_check": summary.values_need_check,
+            "values_extracted": summary.values_extracted,
+            "models_added": summary.models_added,
             "errors": len(summary.errors),
         },
         "sources": source_results,
@@ -194,7 +206,12 @@ def _check_file(catalog: Catalog, fetcher, supplier, product, source, url, prefe
     doc["last_checked"] = revision["captured_at"]
     summary.new_revisions += 1
     log.info("  revised datasheet: %s", doc["title"])
-    counts = recheck_specs(catalog, doc, previous, revision, pages)
+    try:
+        cands = extraction.candidates_for(catalog, doc, resp.body)
+    except Exception:
+        log.exception("Extraction failed for %s", doc["id"])
+        cands = []
+    counts = recheck_specs(catalog, doc, previous, revision, pages, cands)
     summary.values_confirmed += counts[verify.CONFIRMED]
     summary.values_updated += counts[verify.UPDATED]
     summary.values_need_check += counts[verify.NEEDS_CHECK]
@@ -207,12 +224,16 @@ def _check_file(catalog: Catalog, fetcher, supplier, product, source, url, prefe
     )
 
 
-def recheck_specs(catalog: Catalog, doc: dict, previous: dict, revision: dict, pages) -> dict:
+def recheck_specs(catalog: Catalog, doc: dict, previous: dict, revision: dict, pages, cands=()) -> dict:
     counts = {verify.CONFIRMED: 0, verify.UPDATED: 0, verify.NEEDS_CHECK: 0}
     checked_at = revision["captured_at"]
     for spec in catalog.specs_for_document(doc["id"]):
-        outcome = verify.recheck(spec, pages)
+        # Values the extractor made are re-read the same way (by model column);
+        # reviewed values are re-checked by finding their quoted datasheet line.
+        outcome = extraction.recheck_extracted(spec, list(cands)) if spec.get("extractor") else None
+        outcome = outcome or verify.recheck(spec, pages)
         counts[outcome["status"]] += 1
+        was_extracted = spec.get("status") == extraction.STATUS_EXTRACTED
 
         # Keep the state being replaced, so the site can show "previously ...".
         spec.setdefault("history", []).insert(0, {
@@ -222,6 +243,8 @@ def recheck_specs(catalog: Catalog, doc: dict, previous: dict, revision: dict, p
         })
 
         spec["status"] = outcome["status"]
+        if outcome["status"] == verify.CONFIRMED and was_extracted:
+            spec["status"] = extraction.STATUS_EXTRACTED  # still not reviewed by a person
         spec["checked_at"] = checked_at
         spec.pop("reviewed_by", None)
         field = catalog.field(spec["field"])
@@ -237,6 +260,8 @@ def recheck_specs(catalog: Catalog, doc: dict, previous: dict, revision: dict, p
         spec["revision"] = revision["sha256"]
         spec["page"] = outcome["page"]
         spec["evidence"] = outcome["evidence"]
+        if outcome.get("anchor"):
+            spec["anchor"] = outcome["anchor"]
         if outcome["status"] == verify.UPDATED:
             catalog.log(
                 "value-changed",
@@ -247,5 +272,6 @@ def recheck_specs(catalog: Catalog, doc: dict, previous: dict, revision: dict, p
             )
             spec["value"] = outcome["value"]
             spec["numeric"] = outcome["numeric"]
-            spec.pop("anchor", None)  # the new evidence is the extracted text itself
+            if not outcome.get("anchor"):
+                spec.pop("anchor", None)  # the new evidence is the extracted text itself
     return counts

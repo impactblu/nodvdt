@@ -59,6 +59,16 @@ def prepare(settings: Settings) -> None:
     _git(settings, "reset", "--hard", f"origin/{settings.branch}")
 
 
+def code_version(settings: Settings) -> str | None:
+    """Git tree id of the collector's own code in the clone (None before the first clone)."""
+    if not (settings.repo_dir / ".git").exists():
+        return None
+    try:
+        return _git(settings, "rev-parse", "HEAD:collector").strip()
+    except GitError:
+        return None
+
+
 def has_changes(settings: Settings) -> bool:
     return bool(_git(settings, "status", "--porcelain", "--", "data", "datasheets").strip())
 

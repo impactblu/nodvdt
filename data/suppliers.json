@@ -3,11 +3,13 @@
     "id": "power-electronics",
     "name": "Power Electronics",
     "website": "https://power-electronics.com/en/storage",
+    "model_pattern": "\\bFP\\d{4}M[A-Z]{0,2}\\d?\\b",
     "notes": "Initial official source directory checked September 7, 2026. Product families and regional variants require review.",
     "products": [
       {
         "id": "power-electronics-pcsm-multi-pcsm",
         "model": "PCSM / Multi PCSM",
+        "summary": "Power Electronics' PCSM family of medium-voltage power stations for battery storage, in UL and IEC versions, 690 V and 720 V, as single- or multi-inverter skids.",
         "market": "UL and IEC variants",
         "notes": "Family record. Create separate models for voltage, generation, and single/multi configuration before approving variant-specific ratings.",
         "sources": [
@@ -20,11 +22,13 @@
             ],
             "link_pattern": "datasheet"
           }
-        ]
+        ],
+        "kind": "PCS family"
       },
       {
         "id": "power-electronics-fp5020mu-pcsm-690-v-ul",
         "model": "FP5020MU · PCSM 690 V UL",
+        "summary": "A UL-market PCSM Gen 3 power station at 690 V with an integrated MV transformer, rated 4,800 kVA at 40 °C.",
         "kind": "PCS with MV skid",
         "market": "UL variant",
         "notes": "GEN 3, 690 V datasheet, document V. 2.0.2 dated 2026-07-07. Rated comparison point: 40 °C; datasheet also lists 30, 35, and 50 °C values.",
@@ -36,10 +40,12 @@
     "id": "sma",
     "name": "SMA",
     "website": "https://www.sma-america.com/products/battery-inverters",
+    "model_pattern": "\\bSCS\\s?\\d{4}\\s?-?UP-XT(?:-US)?\\b",
     "products": [
       {
         "id": "sma-sunny-central-storage-up-xt-us",
         "model": "Sunny Central Storage UP-XT-US",
+        "summary": "SMA's central storage inverter for the US market, offered in 3,450 to 3,950 kVA ratings.",
         "market": "United States",
         "notes": "3450–3950 UP-XT-US family. SMA's product page loads downloads with JavaScript, so the datasheet is watched through its direct link; a new SMA version gets a new file name and will need the link updated.",
         "sources": [
@@ -60,7 +66,8 @@
               "files.sma.de"
             ]
           }
-        ]
+        ],
+        "kind": "Central storage inverter"
       }
     ]
   },
@@ -68,10 +75,12 @@
     "id": "sungrow",
     "name": "Sungrow",
     "website": "https://www.sungrowpower.com",
+    "model_pattern": "\\bSC\\d{4}UD[-A-Z0-9]*\\b",
     "products": [
       {
         "id": "sungrow-sc5000ud-mv-us-p3",
         "model": "SC5000UD-MV-US-P3",
+        "summary": "Sungrow's 5 MVA storage PCS with an integrated medium-voltage skid, for the US market.",
         "kind": "PCS with MV skid",
         "market": "United States",
         "sources": [
@@ -100,11 +109,13 @@
     "id": "dynapower",
     "name": "Dynapower",
     "website": "https://dynapower.com",
+    "model_pattern": "\\bCPS-\\d{3,4}\\b",
     "products": [
       {
         "id": "dynapower-cps-1500",
         "model": "CPS-1500",
-        "kind": "Model",
+        "summary": "Dynapower's CPS-1500 energy storage inverter for the US market.",
+        "kind": "Energy storage inverter",
         "market": "United States",
         "notes": "Indoor/outdoor and DC configuration differences should be retained in rating conditions.",
         "sources": [
@@ -133,11 +144,13 @@
     "id": "sinexcel",
     "name": "Sinexcel",
     "website": "https://en.sinexcel.com",
+    "model_pattern": "\\bPWX1-\\d+KTL-[A-Z]+(?:-[A-Z]+)?\\b",
     "products": [
       {
         "id": "sinexcel-stellaon-1575k",
         "model": "StellaON 1575K",
-        "kind": "Model family",
+        "summary": "Sinexcel's StellaON 1575 kW-class storage PCS (PWX1-1575KTL-H), offered in CN, EX and NA variants.",
+        "kind": "PCS family",
         "market": "CN / EX / NA variants",
         "sources": [
           {
@@ -158,10 +171,12 @@
     "id": "tmeic",
     "name": "TMEIC",
     "website": "https://www.tmeic.com",
+    "model_pattern": "\\bBSU-L\\d{4}GR\\b",
     "products": [
       {
         "id": "tmeic-energy-storage-pcs",
         "model": "Solar Ware Ninja Universal PCS",
+        "summary": "TMEIC's Solar Ware Ninja is a universal PCS for PV or bi-directional battery storage; the BSU storage variants are rated 550 to 840 kW.",
         "market": "Global; BSU storage variants 550–840 kW",
         "notes": "TMEIC's storage-capable PCS. The BSU-L variants are the energy-storage configurations.",
         "sources": [
@@ -187,6 +202,7 @@
       {
         "id": "ingeteam-ingecon-sun-storage-fsk-c-series-hv",
         "model": "INGECON SUN STORAGE FSK C Series HV",
+        "summary": "Ingeteam's INGECON SUN STORAGE FSK C Series HV medium-voltage storage power station, in UL and IEC versions.",
         "kind": "PCS with MV skid",
         "market": "UL and IEC variants",
         "sources": [

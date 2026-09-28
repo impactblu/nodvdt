@@ -35,6 +35,13 @@
     "group": "DC side"
   },
   {
+    "key": "dc_voltage_range",
+    "label": "DC voltage range",
+    "unit": "V",
+    "kind": "text",
+    "group": "DC side"
+  },
+  {
     "key": "max_dc_current_a",
     "label": "Maximum DC current",
     "unit": "A",

@@ -5,6 +5,7 @@ Layout (paths relative to the repository root):
     data/suppliers.json   hand-edited: suppliers, products and the sources to watch
     data/fields.json      hand-edited: specification field definitions
     data/documents.json   collector-managed: every datasheet and all its revisions
+    data/models.json      collector-managed: models discovered in datasheet tables
     data/specs.json       collector-managed: published values with evidence and history
     data/changes.json     collector-managed: change log, newest first
     data/status.json      collector-managed: result of the last collection run
@@ -68,6 +69,7 @@ class Catalog:
     suppliers: list = field(default_factory=list)
     fields: list = field(default_factory=list)
     documents: list = field(default_factory=list)
+    models: list = field(default_factory=list)
     specs: list = field(default_factory=list)
     changes: list = field(default_factory=list)
     status: dict = field(default_factory=dict)
@@ -82,6 +84,7 @@ class Catalog:
             suppliers=_read(data / "suppliers.json", []),
             fields=_read(data / "fields.json", []),
             documents=_read(data / "documents.json", []),
+            models=_read(data / "models.json", []),
             specs=_read(data / "specs.json", []),
             changes=_read(data / "changes.json", []),
             status=_read(data / "status.json", {}),
@@ -90,6 +93,7 @@ class Catalog:
     def save(self, include_status: bool = True) -> None:
         data = self.root / "data"
         _write(data / "documents.json", self.documents)
+        _write(data / "models.json", self.models)
         _write(data / "specs.json", self.specs)
         _write(data / "changes.json", self.changes[:MAX_CHANGES])
         if include_status:
@@ -97,11 +101,22 @@ class Catalog:
 
     # ---- lookups ------------------------------------------------------------
 
-    def products(self):
-        """Yield (supplier, product) pairs."""
+    def products(self, include_discovered: bool = False):
+        """Yield (supplier, product) pairs: the configured ones, optionally plus discovered models."""
         for supplier in self.suppliers:
             for product in supplier.get("products", []):
                 yield supplier, product
+        if include_discovered:
+            by_id = {s["id"]: s for s in self.suppliers}
+            for model in self.models:
+                if model["supplier"] in by_id:
+                    yield by_id[model["supplier"]], model
+
+    def supplier(self, supplier_id: str) -> dict | None:
+        return next((s for s in self.suppliers if s["id"] == supplier_id), None)
+
+    def product(self, product_id: str) -> dict | None:
+        return next((p for _, p in self.products(include_discovered=True) if p["id"] == product_id), None)
 
     def document_by_url(self, url: str) -> dict | None:
         return next((d for d in self.documents if d["url"] == url), None)

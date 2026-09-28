@@ -25,7 +25,12 @@ log = logging.getLogger("collector")
 
 def one_pass(settings: config.Settings, use_git: bool, root: Path) -> None:
     if use_git:
+        running = gitsync.code_version(settings)
         gitsync.prepare(settings)
+        if running and gitsync.code_version(settings) != running:
+            # New collector code was pushed to GitHub: restart so this pass uses it.
+            log.info("Collector code changed on GitHub; restarting with the new version")
+            os.execv(sys.executable, [sys.executable, "-m", "collector", *sys.argv[1:]])
     catalog = Catalog.load(root)
     if not catalog.suppliers:
         raise SystemExit(f"No data/suppliers.json under {root}. Is REPO_DIR the website repository?")
@@ -40,7 +45,7 @@ def one_pass(settings: config.Settings, use_git: bool, root: Path) -> None:
     log.info(summary.commit_message())
     for error in summary.errors:
         log.warning("Source problem: %s", error)
-    if use_git and gitsync.commit_and_push(settings, summary.commit_message()):
+    if use_git and gitsync.commit_and_push(settings, summary.commit_message()) and settings.push:
         log.info("Pushed to %s (%s)", settings.github_repo, settings.branch)
 
 

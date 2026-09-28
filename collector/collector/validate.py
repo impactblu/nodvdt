@@ -7,7 +7,7 @@ from pathlib import Path
 
 from .store import Catalog, sha256
 
-VALID_STATUSES = {"reviewed", "confirmed", "updated", "needs-check"}
+VALID_STATUSES = {"reviewed", "extracted", "confirmed", "updated", "needs-check"}
 
 
 def problems(root: Path, check_hashes: bool = True) -> list[str]:
@@ -16,7 +16,7 @@ def problems(root: Path, check_hashes: bool = True) -> list[str]:
 
     field_keys = {f["key"] for f in catalog.fields}
     supplier_ids = [s.get("id") for s in catalog.suppliers]
-    product_ids = [p.get("id") for _, p in catalog.products()]
+    product_ids = [p.get("id") for _, p in catalog.products(include_discovered=True)]
     doc_ids = [d["id"] for d in catalog.documents]
     for label, ids in (("supplier", supplier_ids), ("product", product_ids), ("document", doc_ids)):
         if None in ids:
@@ -24,6 +24,10 @@ def problems(root: Path, check_hashes: bool = True) -> list[str]:
         duplicates = {i for i in ids if ids.count(i) > 1}
         if duplicates:
             found.append(f"Duplicate {label} ids: {sorted(duplicates)}")
+
+    for model in catalog.models:
+        if model.get("supplier") not in supplier_ids:
+            found.append(f"Discovered model {model.get('id')}: unknown supplier {model.get('supplier')}")
 
     revisions = {}
     for doc in catalog.documents:

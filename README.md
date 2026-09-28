@@ -35,12 +35,29 @@ Setup instructions (GitHub, Vercel, NAS): **[docs/SETUP.md](docs/SETUP.md)**.
 | Status | Meaning |
 |---|---|
 | Reviewed | A reviewer checked it against the datasheet page. |
+| Auto-extracted | Read from the datasheet table by the rules-based extractor (`collector/collector/extract.py`); not yet reviewed. |
 | Auto-confirmed | The datasheet was revised and the same line was found again. |
 | Auto-updated | A revised datasheet shows a different number; it went live automatically. The old value and old PDF are one click away. |
 | Needs check | The line wasn't found in the revised datasheet; the old value is still shown, from the old revision. |
 
 The automatic check only publishes a new number when the label before it and the unit after it both still match, and the
 number is within 2× of the old one — anything else becomes *Needs check* rather than a guess.
+
+## Automatic extraction (no AI at runtime)
+
+Whenever the collector sees a datasheet version it hasn't read yet, `extract.py` reads the PDF as laid-out text and
+applies field rules (labels, units, value formats) to three layouts: model-column tables with merged cells,
+label/value rows, and "Label: value" lists. Each value keeps the exact datasheet text and page it came from.
+
+- Values are only added where the catalog has none; reviewed values are never overwritten.
+- Model columns are recognised with the supplier's `model_pattern` in `suppliers.json` (e.g. `\bFP\d{4}M[A-Z]{0,2}\d?\b`).
+  Models not yet in the catalog are added to `data/models.json` automatically.
+- When a datasheet is revised, extracted values are re-read from the same model column: unchanged, updated, or flagged.
+- Anything ambiguous (two configurations in one row, pounds instead of kg, a value that can't be tied to a model column)
+  is skipped rather than guessed.
+- Improving a rule? Bump `EXTRACTOR_VERSION` in `extract.py`; the next run re-reads every datasheet and fills gaps.
+
+The tests include a check that the extractor reproduces the hand-reviewed values from the real datasheets.
 
 ## Common edits
 
@@ -52,6 +69,7 @@ number is within 2× of the old one — anything else becomes *Needs check* rath
                 "allowed_hosts": ["maker.example", "cdn.maker.example"], "link_pattern": "datasheet, model-x" }] }
 ```
 
+`summary` is the one-sentence public description shown on the site (keep internal remarks in `notes`, which the site never shows).
 `url` can be a product page (PDF links on it that match `link_pattern` are collected) or a direct PDF link.
 Sites that load downloads with JavaScript need the direct PDF link.
 
