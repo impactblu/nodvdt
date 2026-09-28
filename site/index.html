@@ -3,75 +3,74 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PCS Atlas · Battery storage inverter specs, traced to the datasheet</title>
-  <meta name="description" content="Compare utility-scale battery storage inverters (PCS). Every specification links to the exact page of the manufacturer's datasheet, and the catalog checks for new datasheet versions automatically.">
-  <meta name="theme-color" content="#0f766e">
+  <title>PCS Atlas - Battery storage inverter specs, traced to the datasheet</title>
+  <meta name="description" content="Compare utility-scale battery storage inverters (PCS). Every specification links to the datasheet line it came from, and the catalog checks for new datasheet versions every day.">
+  <meta name="theme-color" content="#fcfcfb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e0e10" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PCS Atlas">
-  <meta property="og:title" content="PCS Atlas · Battery storage inverter specs, traced to the datasheet">
-  <meta property="og:description" content="Every specification links to the page of the manufacturer's datasheet it came from. Checked for new datasheet versions automatically.">
+  <meta property="og:title" content="PCS Atlas - Every inverter spec, traced to its datasheet">
+  <meta property="og:description" content="Compare battery storage inverters side by side. Every number links to the datasheet line it came from.">
   <meta property="og:url" content="https://nodvdt.com/">
   <meta property="og:image" content="https://nodvdt.com/og.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/Geist.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="fonts/GeistMono.woff" as="font" type="font/woff" crossorigin>
   <link rel="stylesheet" href="app.css">
   <script type="module" src="app.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#/" aria-label="PCS Atlas home">
-        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-          <rect width="32" height="32" rx="9"/>
-          <path d="M17.5 6 9 18h6l-1.5 8L23 14h-6z"/>
-        </svg>
-        <span>PCS&nbsp;Atlas</span>
-      </a>
-
-      <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        <span class="sr-only">Menu</span>
-      </button>
-
-      <nav class="site-nav" id="site-nav" aria-label="Main">
+  <header class="hdr">
+    <div class="wrap">
+      <a class="logo" href="#/" aria-label="PCS Atlas home"><i></i>PCS Atlas</a>
+      <nav class="nav" id="site-nav" aria-label="Main">
         <a href="#/" data-route="catalog">Models</a>
         <a href="#/compare" data-route="compare">Compare</a>
         <a href="#/datasheets" data-route="datasheets">Datasheets</a>
         <a href="#/updates" data-route="updates">Updates</a>
         <a href="#/about" data-route="about">How it works</a>
       </nav>
-
-      <form class="header-search" id="header-search" role="search">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        <input type="search" name="q" placeholder="Search" aria-label="Search models" autocomplete="off">
-      </form>
+      <div class="right">
+        <span class="live" id="live"></span>
+        <form class="search" id="header-search" role="search">
+          <svg class="ico" viewBox="0 0 256 256" aria-hidden="true"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></svg>
+          <input type="search" name="q" placeholder="Search models" aria-label="Search models" autocomplete="off" spellcheck="false">
+          <kbd aria-hidden="true">/</kbd>
+        </form>
+        <button class="menu-btn" id="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+          <svg class="ico" viewBox="0 0 256 256" aria-hidden="true"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></svg>
+          <span class="sr-only">Menu</span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main id="main" tabindex="-1">
-    <div class="container"><p class="loading">Loading catalog…</p></div>
-    <noscript><div class="container"><p>This catalog needs JavaScript to display.</p></div></noscript>
+    <div class="wrap"><p class="loading">Loading the catalog</p></div>
+    <noscript><div class="wrap"><p>This catalog needs JavaScript to display.</p></div></noscript>
   </main>
 
-  <div class="compare-tray" id="compare-tray" hidden></div>
+  <div class="tray" id="compare-tray" hidden></div>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-about">
+  <footer class="foot">
+    <div class="wrap">
+      <div>
         <strong>PCS Atlas</strong>
-        <p>Battery storage inverter specifications, each traced to the manufacturer's datasheet. Built and maintained with AI tools, and checked for new datasheet versions automatically.</p>
+        <p>Battery storage inverter specifications, each traced to the manufacturer's datasheet. Built and kept current with AI tools.</p>
       </div>
-      <nav class="footer-links" aria-label="Footer">
+      <nav aria-label="Footer">
         <a href="#/">Models</a>
         <a href="#/datasheets">Datasheets</a>
         <a href="#/updates">Updates</a>
         <a href="#/about">How it works</a>
       </nav>
-      <p class="footer-note">Datasheets are © their manufacturers and archived here only so each value can be checked against its source. Values are not manufacturer-approved.</p>
+      <p class="note">Datasheets are the property of their manufacturers and are archived here only so each value can be checked against its source. Values are not manufacturer-approved.</p>
     </div>
   </footer>
 </body>

@@ -7,7 +7,7 @@ import logging
 from dataclasses import dataclass, field
 from urllib.parse import urlsplit
 
-from . import extraction, verify
+from . import extraction, snapshots, verify
 from .config import Settings
 from .fetch import FetchError, Fetcher, canonical_url, check_public, datasheet_links, filename_for
 from .pdftext import page_texts
@@ -88,6 +88,9 @@ def run(catalog: Catalog, settings: Settings, check_address=check_public, fetche
     # Read values from any datasheet version the extractor hasn't processed yet
     # (new and revised datasheets, and everything after an extractor upgrade).
     summary.values_extracted, summary.models_added = extraction.backfill(catalog)
+
+    # Page images with the value's row highlighted, for the website's source panel.
+    snapshots.backfill(catalog)
 
     catalog.status = {
         "last_run_started": started,

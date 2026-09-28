@@ -35,7 +35,7 @@ Setup instructions (GitHub, Vercel, NAS): **[docs/SETUP.md](docs/SETUP.md)**.
 | Status | Meaning |
 |---|---|
 | Reviewed | A reviewer checked it against the datasheet page. |
-| Auto-extracted | Read from the datasheet table by the rules-based extractor (`collector/collector/extract.py`); not yet reviewed. |
+| Auto-read | Read from the datasheet table by the rules-based extractor (`collector/collector/extract.py`); not yet reviewed. |
 | Auto-confirmed | The datasheet was revised and the same line was found again. |
 | Auto-updated | A revised datasheet shows a different number; it went live automatically. The old value and old PDF are one click away. |
 | Needs check | The line wasn't found in the revised datasheet; the old value is still shown, from the old revision. |
@@ -58,6 +58,15 @@ label/value rows, and "Label: value" lists. Each value keeps the exact datasheet
 - Improving a rule? Bump `EXTRACTOR_VERSION` in `extract.py`; the next run re-reads every datasheet and fills gaps.
 
 The tests include a check that the extractor reproduces the hand-reviewed values from the real datasheets.
+
+## Source highlights on the website
+
+For every value, the collector also renders the datasheet page it came from as a JPEG
+(`datasheets/<sha12>/page-<n>.jpg`, about 140 KB each) and stores where the value's row and cell sit on that page
+(`highlight` in `data/specs.json`, as fractions of the page size). The model page shows that crop with the line
+highlighted next to the value. This is `collector/collector/snapshots.py`; it uses poppler's `pdftotext -bbox-layout`
+and `pdftoppm`, which the collector container already installs. If a row can't be located, the page is shown
+without a box rather than with a wrong one.
 
 ## Common edits
 

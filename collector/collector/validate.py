@@ -61,6 +61,16 @@ def problems(root: Path, check_hashes: bool = True) -> list[str]:
             found.append(f"{where}: revision is not a revision of document {spec.get('document')}")
         if not spec.get("evidence"):
             found.append(f"{where}: evidence is required")
+        hl = spec.get("highlight")
+        if hl:
+            image = str(hl.get("image", ""))
+            if not image.startswith("datasheets/") or ".." in image or not (root / image).exists():
+                found.append(f"{where}: highlight image {image!r} is missing")
+            for key in ("row", "cell"):
+                box = hl.get(key)
+                if box is not None and not (isinstance(box, list) and len(box) == 4
+                                            and all(isinstance(v, (int, float)) and -0.05 <= v <= 1.05 for v in box)):
+                    found.append(f"{where}: highlight {key} must be four fractions")
         for old in spec.get("history", []):
             if old.get("revision") and old["revision"] not in revisions:
                 found.append(f"{where}: history refers to an unknown revision")
