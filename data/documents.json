@@ -24,7 +24,7 @@
         "captured_at": "2026-09-28T06:13:51+00:00",
         "etag": "\"6ed458a8d57bb2794ffc7d2a794fcd8e\"",
         "last_modified": "Mon, 21 Sep 2026 11:58:12 GMT",
-        "extracted": "rules-1"
+        "extracted": "rules-2"
       }
     ],
     "models": [
@@ -59,7 +59,7 @@
         "captured_at": "2026-09-28T06:13:53+00:00",
         "etag": "\"87dc4048058c08db27b76d5c6afde743\"",
         "last_modified": "Mon, 21 Sep 2026 11:58:11 GMT",
-        "extracted": "rules-1"
+        "extracted": "rules-2"
       }
     ],
     "models": [
@@ -92,7 +92,7 @@
         "captured_at": "2026-09-28T06:13:56+00:00",
         "etag": "\"1a2cde34e0ff650f3d784b7af8c00d16\"",
         "last_modified": "Mon, 21 Sep 2026 11:58:11 GMT",
-        "extracted": "rules-1"
+        "extracted": "rules-2"
       }
     ],
     "models": [
@@ -127,7 +127,7 @@
         "captured_at": "2026-09-28T06:13:57+00:00",
         "etag": "\"71f6fff709f90f6b2a2b7ff19cc7c582\"",
         "last_modified": "Mon, 21 Sep 2026 11:58:10 GMT",
-        "extracted": "rules-1"
+        "extracted": "rules-2"
       }
     ],
     "models": [
@@ -160,7 +160,7 @@
         "captured_at": "2026-09-28T06:13:59+00:00",
         "etag": "\"bdd43e234d67695df3a24650f653f6bf\"",
         "last_modified": "Mon, 21 Sep 2026 11:58:13 GMT",
-        "extracted": "rules-1"
+        "extracted": "rules-2"
       }
     ],
     "models": [
@@ -196,7 +196,7 @@
         "captured_at": "2026-09-28T06:14:01+00:00",
         "etag": "\"87e531a0b3f5e7825f6706b0def01442\"",
         "last_modified": "Mon, 21 Sep 2026 11:58:12 GMT",
-        "extracted": "rules-1"
+        "extracted": "rules-2"
       }
     ],
     "models": [
@@ -232,7 +232,7 @@
         "captured_at": "2026-09-28T06:13:39+00:00",
         "etag": "\"f73afedd2139b9131fd612203ae5a5db\"",
         "last_modified": "Mon, 21 Sep 2026 11:58:09 GMT",
-        "extracted": "rules-1"
+        "extracted": "rules-2"
       }
     ],
     "models": [
@@ -276,7 +276,7 @@
         "captured_at": "2026-09-28T06:13:41+00:00",
         "etag": "\"d7e51e42f497b07ea3ec19fdc617856f\"",
         "last_modified": "Mon, 21 Sep 2026 11:58:07 GMT",
-        "extracted": "rules-1"
+        "extracted": "rules-2"
       }
     ],
     "models": [
@@ -309,7 +309,7 @@
         "captured_at": "2026-09-28T06:13:43+00:00",
         "etag": "\"04e8b3673a001a8eebda8cadaf33fdb9\"",
         "last_modified": "Mon, 21 Sep 2026 11:58:08 GMT",
-        "extracted": "rules-1"
+        "extracted": "rules-2"
       }
     ],
     "models": [
@@ -348,7 +348,7 @@
         "captured_at": "2026-09-28T06:13:45+00:00",
         "etag": "\"ce71cc4730a1665437fe453d654cfe63\"",
         "last_modified": "Mon, 21 Sep 2026 11:58:07 GMT",
-        "extracted": "rules-1"
+        "extracted": "rules-2"
       }
     ],
     "models": [
@@ -381,7 +381,7 @@
         "captured_at": "2026-09-28T06:13:47+00:00",
         "etag": "\"a9c8fa2f429474ff2c47110e9b105a69\"",
         "last_modified": "Mon, 21 Sep 2026 11:58:10 GMT",
-        "extracted": "rules-1"
+        "extracted": "rules-2"
       }
     ],
     "models": [
@@ -422,7 +422,7 @@
         "captured_at": "2026-09-28T06:13:49+00:00",
         "etag": "\"7cae055f220639f9636ae9cf121ebcd4\"",
         "last_modified": "Mon, 21 Sep 2026 11:58:09 GMT",
-        "extracted": "rules-1"
+        "extracted": "rules-2"
       }
     ],
     "models": [
@@ -446,7 +446,7 @@
     "url": "https://info-support.sungrowpower.com/datasheet-materials/141a8fd9-bd55-45eb-bed1-02ca586002d4.pdf",
     "source_url": "https://info-support.sungrowpower.com/datasheet-materials/141a8fd9-bd55-45eb-bed1-02ca586002d4.pdf",
     "first_seen": "2026-09-07T22:19:40+00:00",
-    "last_checked": "2026-09-28T17:00:26+00:00",
+    "last_checked": "2026-09-29T17:00:27+00:00",
     "revisions": [
       {
         "sha256": "a0b9f98148d0f5a71ba33d4df3f7ea094734fd5f4bbb10183e79e23153ddff39",
@@ -454,7 +454,7 @@
         "bytes": 767233,
         "pages": 2,
         "captured_at": "2026-09-07T22:19:40+00:00",
-        "extracted": "rules-1"
+        "extracted": "rules-2"
       }
     ],
     "models": [
@@ -469,7 +469,7 @@
     "url": "https://dynapower.com/wp-content/uploads/2022/10/CPS-1500-Datasheet_Aug25_RGB.pdf",
     "source_url": "https://dynapower.com/resource/data-sheet-cps-1500-energy-storage-inverter/",
     "first_seen": "2026-09-28T06:14:17+00:00",
-    "last_checked": "2026-09-28T17:00:32+00:00",
+    "last_checked": "2026-09-29T17:00:33+00:00",
     "revisions": [
       {
         "sha256": "2d023e48cb336120cc5fec95f741d845bd515e77bcde00328e70c8d9e32ad5cc",
@@ -479,7 +479,7 @@
         "captured_at": "2026-09-28T06:14:17+00:00",
         "etag": "\"68d549d9-8ed76\"",
         "last_modified": "Thu, 25 Sep 2025 13:55:37 GMT",
-        "extracted": "rules-1"
+        "extracted": "rules-2"
       }
     ],
     "models": [
@@ -494,7 +494,7 @@
     "url": "https://files.sma.de/downloads/SCS-UP-XT-US-DS-en-24.pdf",
     "source_url": "https://files.sma.de/downloads/SCS-UP-XT-US-DS-en-24.pdf",
     "first_seen": "2026-09-28T06:20:29+00:00",
-    "last_checked": "2026-09-28T17:00:17+00:00",
+    "last_checked": "2026-09-29T17:00:18+00:00",
     "revisions": [
       {
         "sha256": "068edae78341c5a4edb73f237d05aa0bfa2f57d3963fd9dca054738b73781011",
@@ -504,7 +504,7 @@
         "captured_at": "2026-09-28T06:20:29+00:00",
         "etag": "\"9044e573b44a65a7ee34a299712c0a91\"",
         "last_modified": "Mon, 17 Mar 2025 21:03:16 GMT",
-        "extracted": "rules-1"
+        "extracted": "rules-2"
       }
     ],
     "models": [
@@ -522,7 +522,7 @@
     "url": "https://tmeic.com/wp-content/uploads/2025/04/SolarwareNinjaBrochure0523-web.pdf",
     "source_url": "https://tmeic.com/products/solar-ware-ninja-universal-pcs/",
     "first_seen": "2026-09-28T06:20:51+00:00",
-    "last_checked": "2026-09-28T17:00:41+00:00",
+    "last_checked": "2026-09-29T17:00:42+00:00",
     "revisions": [
       {
         "sha256": "0caecc648fb58857025397b9a68a1a1222c8b6feb63e76f6ec852596ea8eb0f1",
@@ -532,7 +532,7 @@
         "captured_at": "2026-09-28T06:20:51+00:00",
         "etag": "\"684a5419-9ac7e\"",
         "last_modified": "Thu, 12 Jun 2025 04:14:17 GMT",
-        "extracted": "rules-1"
+        "extracted": "rules-2"
       }
     ],
     "models": [
@@ -549,7 +549,7 @@
     "url": "https://en.sinexcel.com/uploads/soft/20260303/PWX1-1575KTL-H-EX%20NA%20Datasheet%2020260115.pdf",
     "source_url": "https://en.sinexcel.com/energy-storage/details.html?id=39",
     "first_seen": "2026-09-28T06:53:08+00:00",
-    "last_checked": "2026-09-28T17:00:37+00:00",
+    "last_checked": "2026-09-29T17:00:38+00:00",
     "revisions": [
       {
         "sha256": "effa4205ce87489579c7497767f3dda064825b2dab249cab5b9a066365674472",
@@ -559,7 +559,7 @@
         "captured_at": "2026-09-28T06:53:08+00:00",
         "etag": "\"69e20499-5b410\"",
         "last_modified": "Fri, 17 Apr 2026 09:59:53 GMT",
-        "extracted": "rules-1"
+        "extracted": "rules-2"
       }
     ],
     "models": [
